@@ -196,7 +196,7 @@ apps/anaconda3/5.2.0/bin
     srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
     #srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
     module load apps/anaconda3/2021.05/bin
-    conda create -n tf-gpu tensorflow-gpu
+    conda create -n tf-gpu tensorflow-gpu numpy=1.19.2
     # export PATH=/mnt/scratch2/users/$USER/conda/envs/tf-gpu/bin/:$PATH
     source activate tf-gpu
     (tf-gpu) conda install -c anaconda jupyter
