@@ -37,7 +37,7 @@ An brief overview of `#SBATCH` directives and modules on Kelvin2 is given below:
 `--mail-user` - Specifies the email address to receive the notifications.
 
 ```bash
-#SBATCH --jobname=my-kelvin2-job
+#SBATCH --job-name=my-kelvin2-job
 #SBATCH --output=my-output-file
 #SBATCH --error=my-error-file
 #SBATCH --time=01:30:00
