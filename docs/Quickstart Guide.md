@@ -150,7 +150,7 @@ The temporary directory is typically used for
 
 ### McClay Research Data Storage
 
-QUB PIs may also request access to the McClay Research Data Storage (McClayRDS) for the duration of their research project. The storage space will be assigned to individual research projects and access is shared amongst members of that research group. Access can be requested by filling in the application form [here](https://libguides.qub.ac.uk/ResearchDataManagement/ActiveDataStorageUnit){target=_blank}. Once assigned a project code, the directory is accessible at  `/mnt/autofs/mcclayrds-projects/<project-code>`. 
+QUB PIs may also request access to the McClay Research Data Storage (McClayRDS) for the duration of their research project. The storage space will be assigned to individual research projects and access is shared amongst members of that research group. Access can be requested by filling in the application form [here](https://forms.office.com/pages/responsepage.aspx?id=6ner6qW040mh6NbdI6HyhnnikCeespJIiWT3GPl56KZUNDUyNUdLT1BXV0RROU03MkVHT1ZVNEZZRS4u&origin=lprLink){target=_blank}. Once assigned a project code, the directory is accessible at  `/mnt/autofs/mcclayrds-projects/<project-code>`. 
 
 McClayRDS is typically used for
 
