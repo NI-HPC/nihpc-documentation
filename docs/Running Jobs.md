@@ -335,6 +335,17 @@ It is possible to interact with graphical applications on Kelvin2 by launching a
         ```
     - Close the tunnel by exiting the local terminal opened in Step 6.
 
+## Checkpointing
+
+"Checkpointing" means periodically saving the progress of your computations, such that your job can be paused and resumed at a later time. It is good practice to use checkpointing for jobs that take a long time to complete to ensure that you do not lose all progress if any unplanned interruptions occur, e.g. out-of-memory errors/hardware failures/partition time-limits.
+ 
+Many HPC software applications support checkpointing and instructions are typically included in their user manuals.  A few examples are included below:
+ 
+  - [PyTorch](https://pytorch.org/tutorials/recipes/recipes/saving_and_loading_a_general_checkpoint.html){target=_blank}
+  - [GROMACS](https://manual.gromacs.org/documentation/current/user-guide/managing-simulations.html){target=_blank}
+  - [LAMMPS](https://docs.lammps.org/restart.html){target=_blank}
+  - [EPOCH](https://epochpic.github.io/quickstart/basic_examples/restart_example.html){target=_blank}
+
 ## Tips for optimising your jobscript
   - Use the job analysis tool [sacct](https://slurm.schedmd.com/sacct.html){target=_blank} to check if you allocated more memory than the necessary for futures jobs with the same application, e.g. `sacct -j <job_num> --format="JobID,jobname,NTasks,nodelist,CPUTime,ReqMem,MaxVMSize,Elapsed"`
   - Do not allocate more resources than available in the requested nodes or you job will not run.
