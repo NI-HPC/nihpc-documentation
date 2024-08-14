@@ -159,7 +159,7 @@ IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
 Someone could be eavesdropping on you right now (man-in-the-middle attack)!
 It is also possible that a host key has just been changed.
 ```
-To prevent this warning, navigate to the `known_hosts` file on your local computer (default for linux is `~/.ssh/known_hosts` and paste the following four lines:
+To prevent this warning, navigate to the `known_hosts` file on your local computer (default for linux is `~/.ssh/known_hosts` and paste the following lines:
 ```
 kelvin2.qub.ac.uk,143.117.27.19 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBH1T8XlKSmbuHOn0eEIVHfrvzYDBm0G6i2ansLID5XKtedN3OoxU/PqL6glR9pHhN5TinVgOsYYjX+YxlULwoxs=
 kelvin2.qub.ac.uk,143.117.27.20 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOpr/Rr+2UUve4tQPVnpEc383LCNG4El2hgmnmgN15aDm5XpE3l6qjJ4fpiOaVe386bU+79FPnG1HURvulmZocU=
