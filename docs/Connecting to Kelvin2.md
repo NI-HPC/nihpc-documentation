@@ -162,9 +162,10 @@ It is also possible that a host key has just been changed.
 To prevent this warning, navigate to the `known_hosts` file on your local computer (default for linux is `~/.ssh/known_hosts` and paste the following four lines:
 ```
 kelvin2.qub.ac.uk,143.117.27.19 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBH1T8XlKSmbuHOn0eEIVHfrvzYDBm0G6i2ansLID5XKtedN3OoxU/PqL6glR9pHhN5TinVgOsYYjX+YxlULwoxs=
-kelvin2.qub.ac.uk,143.117.27.20 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLNqmr6N1XCVdDlkvnI+qxO8QMPsyYPk3zd/CmgKDdgDgdn7rCpJRR3qBuiRjTM0Ok/GWzYk/h8Axaba0CVpv30=
-kelvin2.qub.ac.uk,143.117.27.21 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAHWMgZWOmETQjmych3RrxMyVcQgtVa1ndkrFbUpiFiP7aiZoVAcacyoGImJWMjKCU+ihkTtREXDz4EDDrMEce4=
-kelvin2.qub.ac.uk,143.117.27.22 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNQm41eL7A0QoTt9nwMz6gPZxw1L0i379r6f8lNQczoSQuLG9yp1M6ei7S0L6VwquBRkIMdmHzF4HtXmt33wy4k=
+kelvin2.qub.ac.uk,143.117.27.20 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOpr/Rr+2UUve4tQPVnpEc383LCNG4El2hgmnmgN15aDm5XpE3l6qjJ4fpiOaVe386bU+79FPnG1HURvulmZocU=
+kelvin2.qub.ac.uk,143.117.27.21 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOpr/Rr+2UUve4tQPVnpEc383LCNG4El2hgmnmgN15aDm5XpE3l6qjJ4fpiOaVe386bU+79FPnG1HURvulmZocU=
+kelvin2.qub.ac.uk,143.117.27.22 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOpr/Rr+2UUve4tQPVnpEc383LCNG4El2hgmnmgN15aDm5XpE3l6qjJ4fpiOaVe386bU+79FPnG1HURvulmZocU=
+kelvin2.qub.ac.uk,143.117.27.51 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOpr/Rr+2UUve4tQPVnpEc383LCNG4El2hgmnmgN15aDm5XpE3l6qjJ4fpiOaVe386bU+79FPnG1HURvulmZocU=
 ```
 
 ## Connecting to Kelvin2 using SSH clients
