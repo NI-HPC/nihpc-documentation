@@ -173,9 +173,9 @@ For Windows users, the recommended way to connect to Kelvin-2 is via a SSH clien
 
 ### MobaXterm
 
-!!! warning "SCP/SFTP issues with recent versions of MobaXterm"
+!!! warning "SCP/SFTP issues with some versions of MobaXterm"
 
-    Since v23.6 of MobaXterm, users have experienced problems uploading and downloading files. An alternative program that provides file transfers using a graphical interface is [WinSCP](https://winscp.net/eng/index.php)
+Between v23.6 and v24.1 of MobaXterm, users have experienced problems uploading and downloading files. This problem appears resolved as of v24.2. If needed, an alternative program that provides file transfers using a graphical interface is [WinSCP](https://winscp.net/eng/index.php)
 
 [MobaXterm](https://mobaxterm.mobatek.net) is a highly recommended SSH client for Windows. After installing and opening this program, follow these steps to configure the remote session:
 
