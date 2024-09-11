@@ -5,7 +5,8 @@
 Complete the application form [on our website](https://www.ni-hpc.ac.uk/Access/){target=_blank} to apply for an account on Kelvin2. Please allow 48 hours for your application to be processed. If your request is successful, you will receive confirmation via email along with your account credentials.
 
 ## Connecting to Kelvin2 using the terminal
-    Connecting to Kelvin2 is done via Secure Shell Protocol (SSH) using either the terminal (command prompt) that comes preinstalled with your operating system or a separate SSH client which offers additional features, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html){target=_blank} or [MobaXterm](https://mobaxterm.mobatek.net/){target=_blank}. This section shows you how to connect to Kelvin2 using the terminal.
+
+Connecting to Kelvin2 is done via Secure Shell Protocol (SSH) using either the terminal (command prompt) that comes preinstalled with your operating system or a separate SSH client which offers additional features, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html){target=_blank} or [MobaXterm](https://mobaxterm.mobatek.net/){target=_blank}. This section shows you how to connect to Kelvin2 using the terminal.
 
 !!! note
 
