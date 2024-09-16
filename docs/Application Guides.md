@@ -11,10 +11,7 @@ Anaconda is a software that allows the users to manage environments to install l
 ### Installed versions
 
 ``` bash title="Anaconda modules"
-apps/anaconda/2.5.0/bin
-apps/anaconda3/2021.05/bin
-apps/anaconda3/2022.10/bin
-apps/anaconda3/5.2.0/bin
+apps/anaconda3/2024.06/bin
 ```
 
 ### Usage notes
@@ -46,11 +43,11 @@ apps/anaconda3/5.2.0/bin
 
     ``` bash title="Pytorch-Raytune install" linenums="1"
     srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
-    module load apps/anaconda3/2021.05/bin
-    module load libs/nvidia-cuda/11.7.0/bin
+    module load apps/anaconda3/2024.06/bin
+    module load libs/nvidia-cuda/11.8.0/bin
     conda create --name py39torchRayA100 python=3.9
     source activate py39torchRayA100
-    (py39torchRayA100) conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+    (py39torchRayA100) conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
     (py39torchRayA100) python3
     (py39torchRayA100) conda install pytorch-lightning -c conda-forge
     (py39torchRayA100) conda install -c conda-forge "ray-air"
@@ -88,8 +85,8 @@ apps/anaconda3/5.2.0/bin
 
     ``` bash title="Tensorflow-Raytune install" linenums="1"
     srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
-    module load apps/anaconda3/2021.05/bin
-    module load libs/nvidia-cuda/11.7.0/bin
+    module load apps/anaconda3/2024.06/bin
+    module load libs/nvidia-cuda/11.8.0/bin
     conda create --name tensorflowRayA100 python=3.9
     source activate tensorflowRayA100
     (tensorflowRayA100) conda install -c anaconda tensorflow-gpu
@@ -111,7 +108,7 @@ apps/anaconda3/5.2.0/bin
 
     ``` bash title="Bindsnet install" linenums="1"
     srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
-    module load apps/anaconda3/2021.05/bin
+    module load apps/anaconda3/2024.06/bin
     conda create --name bindsnet
     export PATH=/mnt/scratch2/users/$USER/conda/envs/bindsnet/bin/:$PATH
     source activate bindsnet
@@ -142,7 +139,7 @@ apps/anaconda3/5.2.0/bin
     #SBATCH --time=03:00:00
     #SBATCH --output=nnet_%j.log
 
-    module load apps/anaconda3/2021.05/bin
+    module load apps/anaconda3/2024.06/bin
     export CONDA_PKGS_DIRS=/mnt/scratch2/users/$USER/conda/pkgs
     export CONDA_ENVS_PATH=/mnt/scratch2/users/$USER/conda/envs
     export PATH=/mnt/scratch2/users/$USER/conda/envs/bindsnet/bin/:$PATH
@@ -159,7 +156,7 @@ apps/anaconda3/5.2.0/bin
 
     ``` bash title="R installation in an Anaconda environment" linenums="1"
     srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
-    module load apps/anaconda3/2021.05/bin
+    module load apps/anaconda3/2024.06/bin
     export CONDA_PKGS_DIRS=/mnt/scratch2/users/$USER/conda/pkgs
     export CONDA_ENVS_PATH=/mnt/scratch2/users/$USER/conda/envs
     conda create -n R412env -c conda-forge r-base=4.1.2
@@ -173,7 +170,7 @@ apps/anaconda3/5.2.0/bin
 
     ``` bash
     srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
-    module load apps/anaconda3/2021.05/bin
+    module load apps/anaconda3/2024.06/bin
     export CONDA_PKGS_DIRS=/mnt/scratch2/users/$USER/conda/pkgs
     export CONDA_ENVS_PATH=/mnt/scratch2/users/$USER/conda/envs
     source activate R412env
@@ -195,7 +192,7 @@ apps/anaconda3/5.2.0/bin
     ``` bash title="Jupyter notebook installation" linenums="1"
     srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
     #srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
-    module load apps/anaconda3/2021.05/bin
+    module load apps/anaconda3/2024.06/bin
     conda create -n tf-gpu tensorflow-gpu numpy=1.19.2
     # export PATH=/mnt/scratch2/users/$USER/conda/envs/tf-gpu/bin/:$PATH
     source activate tf-gpu
@@ -210,9 +207,9 @@ apps/anaconda3/5.2.0/bin
     ``` bash linenums="1"
     srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
     #srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
-    module load apps/anaconda3/2021.05/bin
+    module load apps/anaconda3/2024.06/bin
     source activate tf-gpu
-    (tf-gpu) jupyter notebook --ip $(ip addr show em1 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) --no-browser
+    (tf-gpu) jupyter notebook --ip $(ip addr show eno1 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) --no-browser
     ```
 
     Jupyter notebook has to run in a compute node. That is why first need to allocate a compute node with `srun` command as shown in line 1 or 2 for a GPU or CPU node. Here, the server is lauched in line 5. Some critical output is printer, mainly the IP and port number, which should be annotated for using later to create the tunnel.
@@ -236,7 +233,7 @@ apps/anaconda3/5.2.0/bin
 
 ### Installed versions
 ```bash
-apps/ansys/2023.1
+ansys/v241
 ```
 
 ### Usage notes
@@ -270,7 +267,7 @@ apps/ansys/2023.1
     #SBATCH --partition=k2-hipri
     #SBATCH --mem=100G
 
-    module load apps/ansys/2023.1
+    module load ansys/v241
 
     ## QUB's license, already loaded with the module
     #export ANSYSLI_SERVERS=2325@143.117.212.118
@@ -300,9 +297,7 @@ apps/ansys/2023.1
 ### Installed versions
 
 ```bash
-matlab/R2019a
-matlab/R2020b
-matlab/R2022a
+matlab/R2024a
 ```
 
 ### Usage examples
@@ -313,7 +308,7 @@ matlab/R2022a
 
     ``` bash
     srun -p k2-hipri -N 1 -n 10 --mem=10G --time=1:00:00 --pty bash
-    module load matlab/R2022a
+    module load matlab/R2024a
     matlab -nosplash -nodisplay
     ```
 
@@ -386,7 +381,7 @@ matlab/R2022a
     ![Image title](assets/TurboVNC.jpg)
     4. Once in the opened terminal for the connected compute node, launch the MATLAB application:
     ```bash
-    module load matlab/R2022a
+    module load matlab/R2024a
     matlab
     ```
 
@@ -469,7 +464,7 @@ matlab/R2022a
     #SBATCH --gres=gpu:1g.10gb:1
     #SBATCH --output=test_%j.log
 
-    module load matlab/R2022a
+    module load matlab/R2024a
 
     # Ulster University (UU) users must use UU's licence by declaring
     # (removing comments) these environmet variables:
@@ -485,78 +480,6 @@ matlab/R2022a
     ```
 
 
-## **ParaView**
-
-[https://www.paraview.org/](https://www.paraview.org/){target=_blank}
-
-"ParaView is the world’s leading open source post-processing visualization engine. It integrates with your existing tools and workflows, allowing you to build visualizations to analyze data quickly. With its open, flexible, and intuitive user interface, you can analyze extremely large datasets interactively in 3D or programmatically using ParaView’s batch processing." - [About ParaView](https://www.paraview.org/about/){target=_blank}
-
-### Installed versions
-```bash
-apps/paraview/5.10.0-rc1/bin
-apps/paraview/5.4.1/bin
-apps/paraview/5.6.1/bin
-apps/paraview/5.8.1/bin
-apps/paraview/5.9.0/bin
-```
-
-### Usage examples
-
-??? example "Paraview Server on Kelvin2 with visualisation on local machine"
-
-    A recommended method to run Paraview on Kelvin-2, it is to start a PV server on Kelvin-2, and to use your local machine to visualize the graphical interface. In this case, you need an installation of Paraview in your local machine as well.
-
-    With the following method, Paraview can be run in parallel, and use the local machine to work with the graphical interface.
-    It is necessary to set a tunnel through the Kelvin-2 login node.
-
-    As example, we are going to explain how to set the tunnel and connect with a computer outside the QUB campus. If the local machine is insithe the QUB campus, you have to remove the specification of the port `-p`, the identification private-key file `-i`, and to change the IP name to `kelvin2.qub.ac.uk`.
-
-    <ins>Step 1</ins>. Run pvserver in a computing node of Kelvin-2.
-
-    Open the session in Kelvin-2 as usual, and then open an interactive session. `<N>` will be the number of cores you require for your parallel job on Paraview.
-
-        $ srun --pty --partition=k2-hipri --ntasks=<N> --mem-per-cpu=2G /bin/bash
-
-    Then, you are transferred to a computing node.
-
-    Now load the necessary modules, for paraview, and for OpenMPI.
-
-        [<uid>@nodeNNN [kelvin2] ~]$ module load apps/paraview/5.8.1/bin
-        [<uid>@nodeNNN [kelvin2] ~]$ module load mpi/openmpi/4.0.4/gcc-9.3.0+ucx-1.8.0
-
-    Run the server with the command
-
-        [<uid>@nodeNNN [kelvin2] ~]$ mpirun -np <N> pvserver --force-offscreen-rendering --server-port=<YYYY>
-
-    Where `<uid>` is your Kelvin-2 username, `<N>` is the number of MPI tasks you want to run Paraview, and `<YYYY>` is a port number your choice.
-
-    <ins>Step 2</ins>. Create the tunnel to the port `<YYYY>`, through the port `<XXXX>` of your local machine.
-
-    In a different shell on your local machine, open the tunnel with the command:
-
-        (local)$ ssh -L <XXXX>:nodeNNN:<YYYY> -p 55890 -i ~/.ssh/my-kelvin-key <uid>@login.kelvin.alces.network
-
-    Where `<uid>` is your Kelvin-2 username, `<YYYY>` is the port number you let open in the former step, and `<XXXX>` is a different port number your choice on your local machine.
-    `nodeNNN` is the computing node that the `srun` command directed you in the former step.
-
-    <ins>Step 3</ins>. Open paraview in your local machine.
-
-    Inside the application click:<br>
-    File - Connect<br>
-    - Give a name to the session, e. g. "remote machine"<br>
-    - In "Server Type" choose: Client / Server<br>
-    - host: localhost<br>
-    - Port: `<XXXX>`  (from step 2)<br>
-
-    Configure<br>
-    - Startup Type: Manual<br>
-    - Press Save<br>
-
-    Connect<br>
-    Once you created the client the first time, you can recover it the next time you open Paraview, you do not need to create it again, and you can connect directly in the step 3.
-
-    ![Paraview Frontend](assets/Paraview_fronted.png)
-
 
 ## **Python**
 
@@ -568,15 +491,10 @@ Python is a high-level, multi-purpose programming language that support several 
 ### Installed versions
 
 ``` bash title="Python modules"
-apps/python/2.7.8/gcc-4.8.5
-apps/python3/3.10.0/gcc-4.8.5
-apps/python3/3.10.5/gcc-9.3.0
-apps/python3/3.4.3/gcc-4.8.5
-apps/python3/3.5.2/gcc-4.8.5
-apps/python3/3.6.4/gcc-4.8.5
-apps/python3/3.7.4/gcc-4.8.5
-apps/python3/3.7.9/gcc-10.2.0
-apps/python3/3.8.5/gcc-4.8.5
+apps/python/2.7.17/gcc-14.1.0
+apps/python3/3.10.5/gcc-14.1.0
+python3/3.10.5/gcc-9.3.0
+apps/python3/3.12.4/gcc-14.1.0
 ```
 
 ### Usage notes
@@ -607,7 +525,7 @@ apps/python3/3.8.5/gcc-4.8.5
     The next code snippet illustrates simply how to load a module and install a package in the default location (gridware folder located in the users' home folder). This approach is only recommended for small installs.
 
     ``` bash
-    module load apps/python3/3.10.5/gcc-9.3.0
+    module load apps/python3/3.12.4/gcc-14.1.0
     python3 -m pip install reportseff
     reportseff -u $USER
     ```
@@ -628,21 +546,7 @@ R is an open-source and free software which provides a programming language desi
 ### Installed versions
 
 ``` bash
-apps/R/3.2.1/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
-apps/R/3.2.5/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
-apps/R/3.3.2/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
-apps/R/3.4.2/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
-apps/R/3.5.1/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
-apps/R/3.6.1/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
-apps/R/3.6.3/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
-apps/R/4.0.4/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
-apps/R/4.1.0/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
-apps/R/4.1.2/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
-apps/R/4.1.3/gcc-9.3.0+lapack-3.9.0+blas-3.8.0
-apps/R/4.2.2/gcc-9.3.0+lapack-3.9.0+blas-3.8.0
-apps/R/4.3.0/gcc-9.3.0+lapack-3.9.0+blas-3.8.0
-R/4.1.0/gcc-9.3.0+lapack-3.9.0+blas-3.8.0
-R/4.1.2/gcc-9.3.0+lapack-3.9.0+blas-3.8.0
+apps/R/4.4.1/gcc-14.1.0+openblas-0.3.27
 ```
 
 ### Usage notes
@@ -660,7 +564,7 @@ R/4.1.2/gcc-9.3.0+lapack-3.9.0+blas-3.8.0
     echo "R_LIBS=/mnt/scratch2/users/$USER/R/lib" >> .Renviron
     echo "PKG_CONFIG_PATH=/mnt/scratch2/$USER/R/lib/pkgconfig" >> .Renviron
     echo "" >> .Renviron
-    module load apps/R/4.3.0/gcc-9.3.0+lapack-3.9.0+blas-3.8.0
+    module load apps/R/4.4.1/gcc-14.1.0+openblas-0.3.27
     R
     > .libPaths()
     > quit()
@@ -677,7 +581,7 @@ R/4.1.2/gcc-9.3.0+lapack-3.9.0+blas-3.8.0
     ``` bash linenums="1"
     srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
     module load libpng/16
-    module load apps/R/4.3.0/gcc-9.3.0+lapack-3.9.0+blas-3.8.0
+    module load apps/R/4.4.1/gcc-14.1.0+openblas-0.3.27
     export HDF5_USE_FILE_LOCKING='FALSE'
     R
     > if (!requireNamespace('BiocManager', quietly = TRUE))
