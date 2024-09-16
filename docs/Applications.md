@@ -395,7 +395,7 @@ srun -p k2-gpu -N 1 -n 4 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bas
 #srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
 module load apps/anaconda3/2021.05/bin
 source activate tf-gpu
-(tf-gpu) jupyter notebook --ip $(ip addr show em1 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) --no-browser
+(tf-gpu) jupyter notebook --ip $(ip addr show eno1 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) --no-browser
 ```
 
 Jupyter notebook has to run in a compute node. That is why first need to allocate a compute node with ```srun``` command as shown in line 1 or 2 for a GPU or CPU node. Here, the server is lauched in line 5. Some critical output is printer, mainly the IP and port number, which should be annotated for using later to create the tunnel.
