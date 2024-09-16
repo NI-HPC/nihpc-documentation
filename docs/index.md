@@ -20,15 +20,15 @@ This policy applies to all users of the NI-HPC service, including but not limite
 
 ### **3. User Responsibilities**
 
-#### **3.1 Compliance with Laws and University Policies**
+**3.1 Compliance with Laws and University Policies**
 
 Users must comply with all relevant UK laws, University regulations, and policies when using the HPC service. This includes, but is not limited to, compliance with the General Data Protection Regulation (GDPR), intellectual property laws, and the University’s IT policies.
 
-#### **3.2 Account Security**
+**3.2 Account Security**
 
 Users are responsible for the security of their NI-HPC accounts. This includes safeguarding passwords, not sharing account credentials, and immediately reporting any suspected security breaches to the NI-HPC support team. 
 
-#### **3.3 Use of Resources**
+**3.3 Use of Resources**
 
 NI-HPC resources must be used efficiently and responsibly. Users should:
 
@@ -37,7 +37,7 @@ NI-HPC resources must be used efficiently and responsibly. Users should:
 * Not run unauthorized software or engage in activities that could harm the system's integrity or performance.
 * Adhere to any specific guidelines or restrictions communicated by the NI-HPC team regarding resource usage.
 
-#### **3.4 Data Management and Confidentiality**
+**3.4 Data Management and Confidentiality**
 
 Users are responsible for managing their data, including ensuring regular backups and adhering to data retention policies. Sensitive or confidential data must be handled in accordance with the University's data protection policies. 
 
@@ -45,33 +45,33 @@ Users are responsible for managing their data, including ensuring regular backup
 
 The following activities are strictly prohibited: 
 
-#### **4.1 Unauthorized Access** 
+**4.1 Unauthorized Access** 
 
 Attempting to gain unauthorized access to any part of the NI-HPC service or other systems connected to the University network. 
 
-#### **4.2 Malicious Activity** 
+**4.2 Malicious Activity** 
 
 Engaging in any activity that could harm the NI-HPC system or other users, including the introduction of malware, denial-of-service attacks, or any form of hacking. 
 
-#### **4.3 Commercial Use** 
+**4.3 Commercial Use** 
 
 Using the NI-HPC service for commercial purposes without explicit authorization from the University. The HPC service is intended for academic and research purposes only. 
 
-#### **4.4 Infringement of Intellectual Property** 
+**4.4 Infringement of Intellectual Property** 
 
 Using the NI-HPC service to infringe upon the intellectual property rights of others, including unauthorized use of copyrighted materials, software, or data. 
 
-#### **4.5 Unlawful or Unethical Use** 
+**4.5 Unlawful or Unethical Use** 
 
 Any use of the NI-HPC service for activities that are unlawful, unethical, or violate University policies, including but not limited to, storing or distributing offensive, discriminatory, or otherwise inappropriate content. 
 
 ### **5. Monitoring and Enforcement** 
 
-#### **5.1 Monitoring** 
+**5.1 Monitoring** 
 
 The University reserves the right to monitor the use of the NI-HPC service to ensure compliance with this AUP. This includes the monitoring of job submissions, resource usage, and data transfers. Such monitoring will be conducted in compliance with relevant privacy laws and University policies. 
 
-#### **5.2 Violation and Consequences** 
+**5.2 Violation and Consequences** 
 
 Violations of this policy may result in the suspension or termination of access to the NI-HPC service, disciplinary action, and potential legal consequences. The University may also recover any costs incurred due to unauthorized use or damage caused by policy violations. 
 
