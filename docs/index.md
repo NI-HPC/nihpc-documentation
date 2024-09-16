@@ -32,13 +32,10 @@ Users are responsible for the security of their NI-HPC accounts. This includes s
 
 NI-HPC resources must be used efficiently and responsibly. Users should:
 
-•	Prioritize jobs appropriately and avoid monopolizing resources.
-
-•	Use storage space judiciously and delete data no longer required.
-
-•	Not run unauthorized software or engage in activities that could harm the system's integrity or performance.
-
-•	Adhere to any specific guidelines or restrictions communicated by the NI-HPC team regarding resource usage.
+* Prioritize jobs appropriately and avoid monopolizing resources.
+* Use storage space judiciously and delete data no longer required.
+* Not run unauthorized software or engage in activities that could harm the system's integrity or performance.
+* Adhere to any specific guidelines or restrictions communicated by the NI-HPC team regarding resource usage.
 
 **3.4 Data Management and Confidentiality**
 
