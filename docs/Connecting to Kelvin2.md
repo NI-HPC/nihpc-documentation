@@ -2,7 +2,7 @@
 
 ## Applying for a Kelvin2 account
 
-Complete the application form [on our website](https://www.ni-hpc.ac.uk/Access/){target=_blank} to apply for an account on Kelvin2. Please allow 48 hours for your application to be processed. If your request is successful, you will receive confirmation via email along with your account credentials.
+Complete the application form [on our website](https://www.ni-hpc.ac.uk/Kelvin2/Access/){target=_blank} to apply for an account on Kelvin2. Please allow 48 hours for your application to be processed. If your request is successful, you will receive confirmation via email along with your account credentials.
 
 ## Connecting to Kelvin2 using the terminal
 
