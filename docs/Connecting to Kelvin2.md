@@ -65,7 +65,7 @@ Please see our [video on how to set up remote access via Mac.](https://www.youtu
 
     Create the SSH key pair on your machine by entering the following command into your terminal:
     ```bash
-    ssh-keygen
+    ssh-keygen -t rsa
     ```
     Call the key `my-kelvin-key` and optionally specify the full path that you want to save it to. The default location, if none is specified, is your home directory, e.g. `C:\Users\<username>\my-kelvin-key`.
 
