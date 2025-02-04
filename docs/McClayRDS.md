@@ -59,13 +59,13 @@ When responsibility is delegated to data managers, the PI retains accountability
 ### Researcher Responsibilities
 
 While you may secure ethical approval via School or Faculty Research Ethics Committee (REC), the particularities of your research data is your responsibility.
-* Ensure participants are fully informed about the type of information you are collecting about them, what it will be used for, how long it will be held, who will access it and whether identifiable or non-identifiable data will be published once the research is complete.
-* Ensure documentation regarding informed consent is secured and held separately from the research data.
-* Check funder [terms and conditions](https://www.qub.ac.uk/directorates/InformationServices/TheLibrary/ResearchSupport/OpenResearch/OpenDataFunderMandatesToolkit/){target=_blank}, and meet any data sharing requirements such as standards and metadata, methods of data sharing, timeframe, and retention periods.
-* Ensure retention periods for data are adhered to, including making the necessary arrangements for the transfer and management of data if you leave the University.
-* Through sharing your data, you could expose or compromise your participants. It is your responsibility to ensure this does not occur. Anonymization/pseudonymization and encryption are required to de-identify data and to prevent disclosive data being revealed. This needs to be implemented wherever you are storing your data e.g. OneDrive, McClay RDS. Access controls are likely to be required for sensitive or very sensitive data.
-* Ensure you have the appropriate data sharing/contract/collaboration agreements in place, if necessary.
-* Identify a relevant [discipline-specific](https://www.re3data.org/){target=_blank} or [institutional repository](https://pure.qub.ac.uk/en/datasets/){target=_blank} to share your research data, if none is specified by your funder. In most cases, sharing your data will necessitate acquiring a DOI, which, generally, can only be achieved through sharing in data repository.
+ * Ensure participants are fully informed about the type of information you are collecting about them, what it will be used for, how long it will be held, who will access it and whether identifiable or non-identifiable data will be published once the research is complete.
+ * Ensure documentation regarding informed consent is secured and held separately from the research data.
+ * Check funder [terms and conditions](https://www.qub.ac.uk/directorates/InformationServices/TheLibrary/ResearchSupport/OpenResearch/OpenDataFunderMandatesToolkit/){target=_blank}, and meet any data sharing requirements such as standards and metadata, methods of data sharing, timeframe, and retention periods.
+ * Ensure retention periods for data are adhered to, including making the necessary arrangements for the transfer and management of data if you leave the University.
+ * Through sharing your data, you could expose or compromise your participants. It is your responsibility to ensure this does not occur. Anonymization/pseudonymization and encryption are required to de-identify data and to prevent disclosive data being revealed. This needs to be implemented wherever you are storing your data e.g. OneDrive, McClay RDS. Access controls are likely to be required for sensitive or very sensitive data.
+ * Ensure you have the appropriate data sharing/contract/collaboration agreements in place, if necessary.
+ * Identify a relevant [discipline-specific](https://www.re3data.org/){target=_blank} or [institutional repository](https://pure.qub.ac.uk/en/datasets/){target=_blank} to share your research data, if none is specified by your funder. In most cases, sharing your data will necessitate acquiring a DOI, which, generally, can only be achieved through sharing in data repository.
 
 
 
