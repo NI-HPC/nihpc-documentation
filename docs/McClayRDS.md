@@ -24,6 +24,7 @@ Please note that you will be unable to directly access your data while it is in 
 ## Requesting Changes
 
 To most effectively manage McClayRDS, we require accurate and up-to-date information on your storage requirements. Please [contact us](https://www.ni-hpc.ac.uk/contact/){target=_blank} if you would like to make any changes to your project including:
+
  * Quotas
  * User access list
  * Project end date
