@@ -2,6 +2,81 @@
 
 Here we will provide information on some of the most popular centrally installed applications and software tools on Kelvin2.
 
+## **Abaqus**
+
+[https://www.technia.com/software/simulia/abaqus](https://www.technia.com/software/simulia/abaqus){target=_blank}
+
+"The best suite of non-linear Finite Element Analysis (FEA) and Computational Fluid Dynamics (CFD) solvers."
+
+### Installed versions
+```bash
+   abaqus/2023
+   abaqus/2024
+```
+
+### Usage notes
+
+??? note "Licensing"
+
+    Simulia Abaqus is a licensed software. In order to use it, users have to be registered in the license server. If you are not already included in the license server, you must contact the person in charge of it:
+
+    QUB: John Megahey [smae-ithelp@qub.ac.uk](mailto:smae-ithelp@qub.ac.uk)
+
+    Ulster: [Jose Sanchez Bornot](mailto:jm.sanchez-bornot@ulster.ac.uk)
+
+    When the module is loaded, no license parameters are loaded. They should be added manually.
+
+    To run Abaqus, it is necessary to create an environment file
+
+    ```bash
+       abaqus_v6.env
+    ```
+
+    with all the necessary parameters. This file is particular to the user.
+
+    To activate the license, the following lines should be added at the end of the environment file:
+
+    ```bash
+       LICENSE_SERVER_TYPE=flex
+       FLEX_LICENSE_CONFIG=<port>@<server>
+       ACADEMIC_TYPE=research
+    ```
+
+    Contact the license administrators to get the information on the port and server.
+
+??? note "User Manual" 
+
+    Visit the Simulia [Abaqus](https://www.3ds.com/products/simulia/abaqus){target=_blank} web page to have access to the help material.
+
+    And the community [forum](https://eu1.iam.3dexperience.3ds.com/login){target=_blank}.
+
+### Usage examples
+
+??? example "Abaqus batch script example"
+
+    ```bash
+       #!/bin/bash
+
+       #SBATCH --job-name=Cunha_LVI_DD_An_74J_Shell_R
+       #SBATCH --ntasks=20
+       #SBATCH --partition=k2-medpri
+       #SBATCH --nodes=1
+       #SBATCH --mem-per-cpu=12G
+       #SBATCH --time=23:59:00
+       #SBATCH --output=std_output_%j
+       #SBATCH --mail-user=<myemail>@qub.ac.uk
+       #SBATCH --mail-type=BEGIN,END,FAIL
+
+       module load abaqus/2024
+
+       unset SLURM_GTIDS
+       abaqus analysis cpus=20 job=Cunha_LVI_DD_An_74J_Shell_R double=BOTH mp_mode=mpi int
+
+       echo "here"
+       pwd
+    ```
+
+
 ## **Anaconda** 
 
 [https://www.anaconda.com/](https://www.anaconda.com/){target=_blank}
@@ -233,7 +308,12 @@ apps/anaconda3/2024.06/bin
 
 ### Installed versions
 ```bash
-ansys/v241
+  ansys/v231/qub
+  ansys/v231/ulster
+  ansys/v241/qub
+  ansys/v241/ulster
+  ansys/v242/qub
+  ansys/v242/ulster
 ```
 
 ### Usage notes
@@ -242,11 +322,13 @@ ansys/v241
 
     Ansys is a licensed software. In order to use it, users have to be registered in the license server. If you are not already included in the license server, you must contact the person in charge of it:
 
-    QUB: TBA
+    QUB: John Megahey [smae-ithelp@qub.ac.uk](mailto:smae-ithelp@qub.ac.uk)
 
-    Ulster: TBA
+    Ulster: [Jose Sanchez Bornot](mailto:jm.sanchez-bornot@ulster.ac.uk)
 
-    When the module is loaded, license parameters for QUB are loaded by default. Ulster users should change these license parameters in their batch script or interactive session. Contact the person in charge of the license for details.
+    When the module is loaded, the suffixes "qub" and "ulster" specify which license-server parameters are uploaded.
+    Users have read permission exclusively to the module file associated to their university, both have campus licence.
+    Contact the license administrator for details.
 
 ??? note "User Manual" 
 
@@ -297,7 +379,10 @@ ansys/v241
 ### Installed versions
 
 ```bash
-matlab/R2024a
+   matlab/R2019a
+   matlab/R2020b
+   matlab/R2022a
+   matlab/R2024a
 ```
 
 ### Usage examples
@@ -603,8 +688,10 @@ In Kelvin-2, we use Singularity to run containers. The main advantage of Singula
 ### Installed versions
 
 ```bash 
-apps/singularity/3.10.0
-apps/singularity/3.4.2
+   apps/singularity/3.10.0
+   apps/singularity/3.4.2
+   apps/apptainer/1.1.2
+   apps/apptainer/1.3.4
 ```
 
 ### Usage examples
