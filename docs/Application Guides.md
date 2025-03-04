@@ -87,13 +87,55 @@ Anaconda is a software that allows the users to manage environments to install l
 
 ``` bash title="Anaconda modules"
 apps/anaconda3/2024.06/bin
+apps/anaconda3/2024.10/bin
 ```
 
 ### Usage notes
 
+??? note "Setting up the environment variables"
+
+    When the particular module for Anaconda is loaded, some environment variables must be set up in the system to make it work properly.
+
+    ``` bash title="Language variables"
+    export LANGUAGE=en_US.UTF-8
+    export LANG=en_US.UTF-8
+    export LC_ALL=en_US.UTF-8
+    ```
+
+    The Anaconda distributions come with a generic environment script.
+    This script should be loaded in the environment of the user to allow all conda features, for example activating and deactivating conda environments.
+    These environment scripts are specific to the conda version, and if an environment script is loaded for a different conda version than the one loaded in the module,
+    it will fall into incompatibilities and will make the conda applications installed not to work.
+
+    To load the environment scripts, it is done in `bash` and `ksh` shells preceding the name of the script with the special character dot `.`,
+    or in csh with the key word `source`.
+
+    The path to these environment scripts are
+    ```
+    <Anaconda_root>/bin/etc/profile.d/conda.sh
+    ```
+
+    For example, in the case of the module for the version 2024.10 of Anaconda:
+
+    ``` bash title="bash, ksh"
+    . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.10/bin/etc/profile.d/conda.sh
+    ```
+    ``` bash title="csh"
+    source /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.10/bin/etc/profile.d/conda.sh
+    ```
+
+    For users who are going to work with Anaconda in a regular basis, it is a good practice to include the definition of the language variables and
+    the call to the environment script in the start-up script
+    ```
+    ~/.bashrc
+    ```
+    In this case, keep in mind to modify this line in your `.bashrc` script if you change the Anaconda version for your work.
+
 ??? note "Redirecting default installation paths to Scratch directory"
 
-    When installing packages with Anaconda, it is recommended that users redirect the default installation paths to their Scratch directory. This is because the installations typically generate a very large number of small files which can breach the 100k file limit in place on the Home directory. This can be done by modifying the environment variables `CONDA_PKGS_DIRS` and `CONDA_ENVS_PATH` as follows:
+    When installing packages with Anaconda, it is recommended that users redirect the default installation paths to their Scratch directory. 
+    This is because the installations typically generate a very large number of small files which can breach the 100k file limit in place on the Home directory. 
+    This can be done by modifying the environment variables `CONDA_PKGS_DIRS` and `CONDA_ENVS_PATH` as follows:
 
     ``` bash
     mkdir /mnt/scratch2/users/$USER/conda
@@ -103,25 +145,33 @@ apps/anaconda3/2024.06/bin
 
 ??? note "Selecting the correct hardware prior to installation"
 
-    When installing packages with Anaconda, it is critical to perform the installation on a node with the appropriate hardware in place. For example, if you intend to run your code using a GPU device, but install that code (or its dependencies) using a node without one, the GPU device may not being recognised at runtime.  This may result in your program crashing, or instead run in the CPU cores by default. In the latter case, your jobs may take significantly longer to complete and also would also cause the requested GPU resources to be sitting idle and unavailable to other users.
+    When installing packages with Anaconda, it is critical to perform the installation on a node with the appropriate hardware in place. 
+    For example, if you intend to run your code using a GPU device, but install that code (or its dependencies) using a node without one, the GPU device may not being recognised at runtime.  
+    This may result in your program crashing, or instead run in the CPU cores by default. 
+    In the latter case, your jobs may take significantly longer to complete and also would also cause the requested GPU resources to be sitting idle and unavailable to other users.
 
 
 ??? note "Complexities in installing packages with Python and Anaconda"
 
-    When installing packages with both Python and Anaconda, there may be complexities related to package version incompatibilities, the proper Python version (maybe an older or newer version is strictly required), package installation order, or the possible necessity to install supporting libraries. The first three "Usage examples" below demonstrate the installation of some commonly used applications.
+    When installing packages with both Python and Anaconda, there may be complexities related to package version incompatibilities, 
+    the proper Python version (maybe an older or newer version is strictly required), package installation order, or the possible necessity to install supporting libraries. 
+    The first three "Usage examples" below demonstrate the installation of some commonly used applications.
 
 ### Usage examples
 
 ??? example "Installing PyTorch and Ray Tune"
 
-    In this example, PyTorch is installed together with Ray Tune. The latter is a tool used for deep learning models optimization as it helps with the evaluation and selection of model hyperparameters (e.g., number of layers, neurons per layer, selection between different transfer or optimization functions, etc.)
+    In this example, PyTorch is installed together with Ray Tune. 
+    The latter is a tool used for deep learning models optimization as it helps with the evaluation and selection of model hyperparameters 
+    (e.g., number of layers, neurons per layer, selection between different transfer or optimization functions, etc.)
 
     ``` bash title="Pytorch-Raytune install" linenums="1"
     srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
     module load apps/anaconda3/2024.06/bin
     module load libs/nvidia-cuda/11.8.0/bin
+    . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
     conda create --name py39torchRayA100 python=3.9
-    source activate py39torchRayA100
+    conda activate py39torchRayA100
     (py39torchRayA100) conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
     (py39torchRayA100) python3
     (py39torchRayA100) conda install pytorch-lightning -c conda-forge
@@ -129,16 +179,21 @@ apps/anaconda3/2024.06/bin
     (py39torchRayA100) conda deactivate
     ```
 
-    Line 1 above shows the use of GPU slice partitions: `--gres gpu:1g.10gb:1`. As currently there are available 28 slices in Kelvin2, this partition is much less busy than the other GPU partitions, and at the same time would allow the users to install software in the A100 GPU devices, which would guarantee backward compatibility with GPU devices.
+    Line 1 above shows the use of GPU slice partitions: `--gres gpu:1g.10gb:1`. 
+    As currently there are available 28 slices in Kelvin2, this partition is much less busy than the other GPU partitions, 
+    and at the same time would allow the users to install software in the A100 GPU devices, which would guarantee backward compatibility with GPU devices.
 
-    Lines 2-5 setup the environment variables, create an Anaconda environment named `py39torchRayA100` while installing Python version 3.9, and activate the environment. This Python version is strictly required here as current Ray Tune installation version may crash with newer Python versions than 3.10.
+    Lines 2-5 setup the environment variables, create an Anaconda environment named `py39torchRayA100` while installing Python version 3.9, and activate the environment. 
+    This Python version is strictly required here as current Ray Tune installation version may crash with newer Python versions than 3.10.
 
-    The next lines 6-10 are needed to install the required tools, particularly Ray Tune is installed in line 9. Here, the package "ray-air" contains most of the provided functionality by Ray Tune (Data, Train, Tune, Serve, etc.).
+    The next lines 6-10 are needed to install the required tools, particularly Ray Tune is installed in line 9. 
+    Here, the package "ray-air" contains most of the provided functionality by Ray Tune (Data, Train, Tune, Serve, etc.).
 
-    After installation, users must check that PyTorch can correctly utilize the GPU resources available. For example, users must see something similar to the following output when running the PyTorch's functions:
+    After installation, users must check that PyTorch can correctly utilize the GPU resources available. 
+    For example, users must see something similar to the following output when running the PyTorch's functions:
 
     ``` bash title="Testing that torch can see GPU resources"
-    source activate py39torchRayA100
+    conda activate py39torchRayA100
     (py39torchRayA100) python3
     >>> import torch
     >>> torch.cuda.is_available()
@@ -162,8 +217,9 @@ apps/anaconda3/2024.06/bin
     srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
     module load apps/anaconda3/2024.06/bin
     module load libs/nvidia-cuda/11.8.0/bin
+    . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
     conda create --name tensorflowRayA100 python=3.9
-    source activate tensorflowRayA100
+    conda activate tensorflowRayA100
     (tensorflowRayA100) conda install -c anaconda tensorflow-gpu
     (tensorflowRayA100) conda install -c conda-forge "ray-air"
     (tensorflowRayA100) conda deactivate
@@ -172,7 +228,7 @@ apps/anaconda3/2024.06/bin
     Users also must test that tensorflow can correctly see the GPU resources. For that purpose, after installing the software, use the following commands:
 
     ``` bash title="Testing that tensorflow can see GPU resources"
-    source activate tensorflowRayA100
+    conda activate tensorflowRayA100
     (tensorflowRayA100) python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
     (tensorflowRayA100) conda deactivate
     ```
@@ -184,9 +240,10 @@ apps/anaconda3/2024.06/bin
     ``` bash title="Bindsnet install" linenums="1"
     srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
     module load apps/anaconda3/2024.06/bin
+    . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
     conda create --name bindsnet
     export PATH=/mnt/scratch2/users/$USER/conda/envs/bindsnet/bin/:$PATH
-    source activate bindsnet
+    conda activate bindsnet
     (bindsnet) conda install python=3.10
     (bindsnet) python3 -m pip install git+https://github.com/BindsNET/bindsnet.git
     (bindsnet) python3 -m pip show bindsnet
@@ -194,13 +251,20 @@ apps/anaconda3/2024.06/bin
     (bindsnet) conda deactivate
     ```
 
-    The apparent simplicity of above instructions hides some complexities. For example, the declaration of the "PATH" environment variable in line 4 may be neccesary when PyPi/pip is combined with Anaconda, as some of the installed packages may still be missing after installation, unexpectedly. Also, in line 6, Python's version 3.10 was installed as Bindsnet most recent version at this moment seems not to be compatible with older Python versions.
+    The apparent simplicity of above instructions hides some complexities. 
+    For example, the declaration of the "PATH" environment variable in line 4 may be neccesary when PyPi/pip is combined with Anaconda, 
+    as some of the installed packages may still be missing after installation, unexpectedly. 
+    Also, in line 6, Python's version 3.10 was installed as Bindsnet most recent version at this moment seems not to be compatible with older Python versions.
 
-    Finally, when installing Bindsnet in line 7, it automatically finds and installs all needed dependencies, including the compatible versions for torch, torchvision, etc. Therefore, we do not recommend to install any package before bindsnet, otherwise bindsnet installation can fail. Then, in line 8, the command `python3 -m pip show bindsnet` allows to get the physical path where Bindsnet is installed, which may be necessary to access some folders with testing examples and scripts. For the same reasons, users may want to install the package "pytest", as it is done in line 9.
+    Finally, when installing Bindsnet in line 7, it automatically finds and installs all needed dependencies, including the compatible versions for torch, torchvision, etc. 
+    Therefore, we do not recommend to install any package before bindsnet, otherwise bindsnet installation can fail. 
+    Then, in line 8, the command `python3 -m pip show bindsnet` allows to get the physical path where Bindsnet is installed, which may be necessary to access some folders with testing examples and scripts. 
+    For the same reasons, users may want to install the package "pytest", as it is done in line 9.
 
     As Bindsnet will install automatically PyTorch as one of its dependencies, we strongly recommend to test that PyTorch can see the GPU resources, as discussed in the Installing Pytorch and Ray Tune example.
 
-    The following is an example of sbatch script that uses the installed Bindsnet package, which can be launched from command line using the command `sbatch bindsnet_example.sh`. Of course, users must have first to prepare their python codes, with the main file name provided in line 19. 
+    The following is an example of sbatch script that uses the installed Bindsnet package, which can be launched from command line using the command `sbatch bindsnet_example.sh`. 
+    Of course, users must have first to prepare their python codes, with the main file name provided in line 19. 
 
     ``` bash title="bindsnet_example.sh" linenums="1"
     #!/bin/bash
@@ -215,11 +279,12 @@ apps/anaconda3/2024.06/bin
     #SBATCH --output=nnet_%j.log
 
     module load apps/anaconda3/2024.06/bin
+    . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
     export CONDA_PKGS_DIRS=/mnt/scratch2/users/$USER/conda/pkgs
     export CONDA_ENVS_PATH=/mnt/scratch2/users/$USER/conda/envs
     export PATH=/mnt/scratch2/users/$USER/conda/envs/bindsnet/bin/:$PATH
 
-    source activate /mnt/scratch2/users/$USER/conda/envs/bindsnet
+    conda activate /mnt/scratch2/users/$USER/conda/envs/bindsnet
 
     python3 <code_file_name>.py
     ```
@@ -232,23 +297,28 @@ apps/anaconda3/2024.06/bin
     ``` bash title="R installation in an Anaconda environment" linenums="1"
     srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
     module load apps/anaconda3/2024.06/bin
+    . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
     export CONDA_PKGS_DIRS=/mnt/scratch2/users/$USER/conda/pkgs
     export CONDA_ENVS_PATH=/mnt/scratch2/users/$USER/conda/envs
     conda create -n R412env -c conda-forge r-base=4.1.2
     ```
 
-    Here, the preferred version (4.1.2) is specified in line 5 with the argument "r-base=4.1.2". For other versions, check the Anaconda R's online documentation, for example [here](https://anaconda.org/conda-forge/r-base){target=_blank} or [here](https://docs.anaconda.com/free/anaconda/packages/using-r-language/){target=_blank} for more information.
+    Here, the preferred version (4.1.2) is specified in line 5 with the argument "r-base=4.1.2". 
+    For other versions, check the Anaconda R's online documentation, for example [here](https://anaconda.org/conda-forge/r-base){target=_blank} 
+    or [here](https://docs.anaconda.com/free/anaconda/packages/using-r-language/){target=_blank} for more information.
 
     **Installation Example: HOMER**
 
-    The following example illustrates how to use this environment for installing a particular R's package [HOMER](http://homer.ucsd.edu/homer/introduction/install.html){target=_blank}, proceeding from a clean/new Kelvin2 terminal connection.
+    The following example illustrates how to use this environment for installing a particular R's package 
+    [HOMER](http://homer.ucsd.edu/homer/introduction/install.html){target=_blank}, proceeding from a clean/new Kelvin2 terminal connection.
 
     ``` bash
     srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
     module load apps/anaconda3/2024.06/bin
+    . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
     export CONDA_PKGS_DIRS=/mnt/scratch2/users/$USER/conda/pkgs
     export CONDA_ENVS_PATH=/mnt/scratch2/users/$USER/conda/envs
-    source activate R412env
+    conda activate R412env
     (R412env)$ conda config --add channels defaults
     (R412env)$ conda config --add channels bioconda
     (R412env)$ conda config --add channels conda-forge
@@ -268,26 +338,33 @@ apps/anaconda3/2024.06/bin
     srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
     #srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
     module load apps/anaconda3/2024.06/bin
+    . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
     conda create -n tf-gpu tensorflow-gpu numpy=1.19.2
     # export PATH=/mnt/scratch2/users/$USER/conda/envs/tf-gpu/bin/:$PATH
-    source activate tf-gpu
+    conda activate tf-gpu
     (tf-gpu) conda install -c anaconda jupyter
     (tf-gpu) conda deactivate
     ```
 
-    If the user does not need to use GPU resources, for example, the plan is to run on CPU cores, then `srun` instruction in line 2 must be used, instead of line 1, to get an interactive session in CPU nodes for the installation. Also, ignore the installation of tensorflow part if the only purpose is to install Jupyter notebook to be used with other packages, such as Pandas or NumPy. In that case, just create the environment in line 4 with the following instruction: `conda create -n <environment_name>`.
+    If the user does not need to use GPU resources, for example, the plan is to run on CPU cores, then `srun` instruction in line 2 must be used, instead of line 1, 
+    to get an interactive session in CPU nodes for the installation. 
+    Also, ignore the installation of tensorflow part if the only purpose is to install Jupyter notebook to be used with other packages, such as Pandas or NumPy. 
+    In that case, just create the environment in line 4 with the following instruction: `conda create -n <environment_name>`.
 
-    Finally, to access Jupyter notebook remotely from the (local) browser in the user's PC/laptop, the user must launch a Jupyter server connection and create a tunnel to it. To launch the server, run these commands:
+    Finally, to access Jupyter notebook remotely from the (local) browser in the user's PC/laptop, the user must launch a Jupyter server connection and create a tunnel to it. 
+    To launch the server, run these commands:
 
     ``` bash linenums="1"
     srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
     #srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
     module load apps/anaconda3/2024.06/bin
-    source activate tf-gpu
+    . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
+    conda activate tf-gpu
     (tf-gpu) jupyter notebook --ip $(ip addr show eno1 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) --no-browser
     ```
 
-    Jupyter notebook has to run in a compute node. That is why first need to allocate a compute node with `srun` command as shown in line 1 or 2 for a GPU or CPU node. Here, the server is lauched in line 5. Some critical output is printer, mainly the IP and port number, which should be annotated for using later to create the tunnel.
+    Jupyter notebook has to run in a compute node. That is why first need to allocate a compute node with `srun` command as shown in line 1 or 2 for a GPU or CPU node. 
+    Here, the server is lauched in line 5. Some critical output is printer, mainly the IP and port number, which should be annotated for using later to create the tunnel.
 
     For the last part, open a local terminal in the user's PC/laptop, and enter the following instructions:
 
@@ -297,7 +374,8 @@ apps/anaconda3/2024.06/bin
 
     This establishes the tunnel using `ssh` command, where it has been assumed that the IP and port number annotated above are "10.10.15.3" and "8888", respectively.
 
-    If not errors are reported during the execution of these commands, and the terminal looks like hanging out, then everything is ok, and the last step is to open a local browser and enter the adress "http://127.0.0.1 ...", which must have been shown in the output when the server connection was created.
+    If not errors are reported during the execution of these commands, and the terminal looks like hanging out, then everything is ok, 
+    and the last step is to open a local browser and enter the adress "http://127.0.0.1 ...", which must have been shown in the output when the server connection was created.
 
 
 ## **Ansys**
@@ -314,6 +392,8 @@ apps/anaconda3/2024.06/bin
   ansys/v241/ulster
   ansys/v242/qub
   ansys/v242/ulster
+  ansys/v251/qub
+  ansys/v251/ulster
 ```
 
 ### Usage notes
