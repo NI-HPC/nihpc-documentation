@@ -81,7 +81,8 @@ Here we will provide information on some of the most popular centrally installed
 
 [https://www.anaconda.com/](https://www.anaconda.com/){target=_blank}
 
-Anaconda is a software that allows the users to manage environments to install local libraries and software, particularly Python and R programming languages, for scientific computing. Thus, greatly easing software management and reducing possible incompatibilities among different tools, libraries or software versions.
+Anaconda is a software that allows the users to manage environments to install local libraries and software, particularly Python and R programming languages, for scientific computing. 
+Thus, greatly easing software management and reducing possible incompatibilities among different tools, libraries or software versions.
 
 ### Installed versions
 
