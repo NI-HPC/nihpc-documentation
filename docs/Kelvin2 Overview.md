@@ -8,6 +8,9 @@ Below we will list the resources available.
 - 8 High memory nodes (2TB RAM).
 - 32 x NVIDIA Tesla v100 GPUs in 8 nodes.
 - 16 x NVIDIA Tesla A100 GPUs in 4 nodes.
+- 4 x NVIDIA Tesla H100 GPUs in 1 node.
+- 4 x Intel MAX 1100 GPUs in 1 node.
+- 8 x AMD MI300X GPUs in 1 node.
 - 2PB of lustre parallel file system for scratch storage.
 
 ## Storage
