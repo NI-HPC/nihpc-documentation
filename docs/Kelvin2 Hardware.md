@@ -41,7 +41,7 @@
 - **Memory:** 512GiB
 - **NUMA domains:** 2
 - **GPU:** 4x Tesla V100 PCIe 32GB
-- **SLURM partitions:** k2-gpu, k2-gpu-interactive, k2-epsrc
+- **SLURM partitions:** k2-gpu-v100, k2-gpu-interactive, k2-epsrc-gpu-v100
 
 **A100 nodes**
 
@@ -52,7 +52,7 @@
 - **Memory:** 1TiB
 - **NUMA domains:** 8
 - **GPU:** 4x Tesla A100 SXM4 80GB
-- **SLURM partitions:** k2-gpu, k2-gpu-interactive, k2-epsrc
+- **SLURM partitions:** k2-gpu-a100, k2-gpu-interactive, k2-epsrc-gpu-a100
 
 **A100 slice node**
 
@@ -63,7 +63,40 @@
 - **Memory:** 1TiB
 - **NUMA domains:** 8
 - **GPU:** 4x Tesla A100 SXM4 80GB, each partitioned into 7 instances
-- **SLURM partitions:** k2-gpu, k2-gpu-interactive, k2-epsrc
+- **SLURM partitions:** k2-gpu-a100mig, k2-gpu-interactive, k2-epsrc-gpu-h100
+
+**H100 node**
+
+- **Nodes:** gpu[121]
+- **Server:** Dell PowerEdge XE8640
+- **CPU:** 2x Intel(R) Xeon(R) Platinum 8468 Processor
+- **Sockets:Cores:Threads:** 2:96:1
+- **Memory:** 1TiB
+- **NUMA domains:** 8
+- **GPU:** 4x Tesla H100 SXM5 80GB
+- **SLURM partitions:** k2-gpu-h100, k2-gpu-interactive, k2-epsrc-gpu-h100
+
+**MI300X node**
+
+- **Nodes:** gpu[123]
+- **Server:** Dell PowerEdge XE9680
+- **CPU:** 2x Intel(R) Xeon(R) Platinum 8470 Processor
+- **Sockets:Cores:Threads:** 2:104:1
+- **Memory:** 2TiB
+- **NUMA domains:** 8
+- **GPU:** 8 x AMD MI300x
+- **SLURM partitions:** k2-gpu-amd, k2-gpu-interactive, k2-epsrc-gpu-amd
+
+**MAX 1100 node**
+
+- **Nodes:** gpu[122]
+- **Server:** Dell PowerEdge R760xa
+- **CPU:** 2x Intel(R) Xeon(R) Gold 6438Y+ Processor
+- **Sockets:Cores:Threads:** 2:64:1
+- **Memory:** 500Gb
+- **NUMA domains:** 8
+- **GPU:** 4x Ponte Vecchio XT (1 Tile) Data Center GPU Max 1100
+- **SLURM partitions:** k2-gpu-intel, k2-gpu-interactive, k2-epsrc-gpu-intel
 
 
 ## High Memory Nodes
