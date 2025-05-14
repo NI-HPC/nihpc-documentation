@@ -41,9 +41,7 @@ Learn More and Broaden Your Impact
 
   
 
-For more guidance on reducing the carbon footprint of your digital research practices, explore the Digital Humanities Climate Coalition (DHCC) Toolkit: 
-
-🔗 https://sas-dhrh.github.io/dhcc-toolkit/toolkit/introduction.html 
+For more guidance on reducing the carbon footprint of your digital research practices, explore the [Digital Humanities Climate Coalition (DHCC) Toolkit](https://sas-dhrh.github.io/dhcc-toolkit/toolkit/introduction.html)
   
 For AI workloads, see the “Maximal Computing” section. 
 
@@ -53,9 +51,7 @@ For AI workloads, see the “Maximal Computing” section.
 
 ## Institutional Commitment: QUB and Sustainability 
 
-Queen’s University Belfast promotes sustainability in research through its Concordat for Environmental Sustainability in Research and Innovation. Learn more about these initiatives here: 
-
-🔗 https://www.qub.ac.uk/about/sustainability/research/ConcordatforEnvironmentalSustainabilityinResearchandInnovation/ 
+Queen’s University Belfast promotes sustainability in research through its Concordat for Environmental Sustainability in Research and Innovation. Learn more about these initiatives [here](https://www.qub.ac.uk/about/sustainability/research/ConcordatforEnvironmentalSustainabilityinResearchandInnovation/).
 
   
 
