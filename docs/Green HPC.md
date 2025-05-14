@@ -31,9 +31,7 @@ Green HPC refers to using high-performance computing systems in a carbon-efficie
 
   
 
-Sustainability First: Avoiding Emissions Is Best 
-
-  
+## Sustainability First: Avoiding Emissions Is Best 
 
 As with many areas of sustainability, the most effective approach is carbon abatement—not emitting carbon in the first place. Efficient HPC use reduces the need for offsetting emissions after they occur. 
 
