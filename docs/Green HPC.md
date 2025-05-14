@@ -5,13 +5,13 @@ Green HPC refers to using high-performance computing systems in a carbon-efficie
 
 ## Best Practices for Carbon-Efficient HPC Use
 
-1. Run Only Meaningful Jobs 
+**1. Run Only Meaningful Jobs**
 
    Before submitting any job, ensure it will generate valuable results. Avoid running calculations without a clear understanding of their purpose or relevance to your research. 
 
   
 
-2. Test Before Scaling 
+**2. Test Before Scaling**
 
    Always test input files and job scripts using small or short jobs before scaling up. 
 
@@ -21,7 +21,7 @@ Green HPC refers to using high-performance computing systems in a carbon-efficie
 
   
 
-3. Optimize Job Design 
+**3. Optimize Job Design**
 
    Consider whether your project goals can be achieved with fewer jobs. For instance: 
 
@@ -55,7 +55,7 @@ Queen’s University Belfast promotes sustainability in research through its Con
 
   
 
-Take Action 
+## Take Action 
 
 By adopting these practices and thinking critically about your computational impact, you can contribute meaningfully to reducing carbon emissions in research. 
 
