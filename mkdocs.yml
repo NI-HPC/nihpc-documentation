@@ -9,6 +9,7 @@ nav:
     - 'Compilers.md'
     - 'Kelvin2 Hardware.md'
     - 'McClayRDS.md'
+    - 'Green HPC.md'
 theme:
   name: material
   features:
