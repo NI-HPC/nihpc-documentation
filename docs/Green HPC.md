@@ -1,4 +1,4 @@
-# Green HPC: Sustainable Use of High-Performance Computing
+# Green HPC: Sustainable Use of High Performance Computing
 
 Green HPC refers to using high-performance computing systems in a carbon-efficient way, aiming to minimize environmental impact. Every user of Kelvin2 can contribute to reducing emissions by following sustainable computing practices. 
 
