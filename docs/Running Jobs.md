@@ -64,9 +64,8 @@ The main Kelvin2 partitions along with their time limits and computational resou
 |k2-epsrc|N/A|"|"|
 |k2-himem|3 days|128 (6 Nodes), 256 (2 Nodes)|2051 GB (4 Nodes) 2063 GB (4 Nodes)|
 |k2-epsrc-himem|N/A|"|"|
-|k2-gpu|3 days|48 (8 Nodes), 128 (4 Nodes)|514 GB (8 Nodes), 1031GB (4 Nodes)|
-|k2-gpu-interactive|3 hours|"|"|
-|k2-epsrc-gpu|3 days|"|"|
+|k2-gpu-<model\>|3 days|48 (8 Nodes), 128 (7 Nodes)|514 GB (8 Nodes), 1031GB (7 Nodes)|
+|k2-epsrc-gpu-<model\>|3 days|"|"|
 
 Other partitions are also available, including some for specific research groups. A comprehensive list of Kelvin2 nodes, their associated partitions and their computational resources can be found using the [sinfo command](https://slurm.schedmd.com/sinfo.html){target=_blank}.
 
@@ -109,11 +108,15 @@ Jobs submitted to the k2-gpu, k2-gpu-interactive (for [interactive jobs](#intera
 #SBATCH --gres=gpu:<gpu-type>:<N>
 ```
 
-|Available GPU Resources|Example `--gres` flag|
-|-|-|
-|32 x Tesla V100 PCIe 32Gb (4 GPUs on 8 Nodes)|`#SBATCH --gres=gpu:v100:1`|
-|12 x Tesla A100 SXM4 80GB (4 GPUs on 3 Nodes)|`#SBATCH --gres=gpu:a100:1`|
-|28 x CI slices of a Tesla A100 SXM4 80GB (7 slices on 4 GPUs on 1 Node)| `#SBATCH --gres=gpu:1g.10gb:1`|
+|Available GPU Resources|Example `--gres` flag|Partition <model\> specification|
+|-|-|-|
+|32 x Tesla V100 PCIe 32Gb (4 GPUs on 8 Nodes)|`#SBATCH --gres=gpu:v100:1`|`#SBATCH --partition=k2-gpu-v100`|
+|12 x Tesla A100 SXM4 80GB (4 GPUs on 3 Nodes)|`#SBATCH --gres=gpu:a100:1`|`#SBATCH --partition=k2-gpu-a100`|
+|12 x CI slices of a Tesla A100 SXM4 80GB (7 slices on 4 GPUs on 1 Node)| `#SBATCH --gres=gpu:2g.20gb:1`|`#SBATCH --partition=k2-gpu-a100mig`|
+| 4 x Tesla H100 HBM3 80GB (4 GPUs on 1 Node) |`#SBATCH --gres=gpu:h100:1`|`#SBATCH --partition=k2-gpu-h100`|
+| 8 x AMD ROCm  (8 GPUs on 1 Node )|`#SBATCH --gres=gpu:mi300x:1`|`#SBATCH --partition=k2-gpu-amd`|
+| 4 x Intel (4 GPUs on 1 Node)|`#SBATCH --gres=gpu:i1100:1`|`#SBATCH --partition=k2-gpu-intel`|
+
 
 
 
@@ -126,13 +129,13 @@ The `module avail` command will show the list of applications that are currently
 
 ```bash
 [<username>@login1 [kelvin2] ~]$ module avail
----  /opt/gridware/local/el7/etc/modules  ---
-  apps/anaconda/2.5.0/bin
-  apps/anaconda3/2021.05/bin
-  apps/anaconda3/2022.10/bin
-  apps/anaconda3/5.2.0/bin
-  apps/annovar/20160201/noarch
-  apps/bamtools/2.3.0/gcc-4.8.5
+---  /opt/gridware/local/el8/etc/modules  ---
+  apps/R/4.4.1/gcc-14.1.0+openblas-0.3.27
+  apps/anaconda3/2024.06/bin
+  apps/anaconda3/2024.10/bin
+  apps/bcftools/1.21/gcc-14.1.0
+  apps/bcftools/1.21/gcc-8.5.0 *default*
+  apps/bedtools/2.31.1/gcc-14.1.0
   ...
 ```
 
@@ -163,12 +166,12 @@ For illustration, example jobscripts for CPU and GPU applications are shown belo
     #SBATCH --mail-user=<email address>         # Specify email address for notifications
     #SBATCH --mail-type=ALL                     # Specify types of notification (eg job Begin, End)
     #SBATCH --ntasks=32                         # Number of tasks to run (for MPI tasks this is number of cores) 
-    #SBATCH --nodes=4                          # Maximum number of nodes on which to launch tasks 
+    #SBATCH --nodes=4                           # Maximum number of nodes on which to launch tasks 
 
     #SBATCH --partition=k2-hipri                # Specify SLURM partition to queue the job
 
     
-    module load mpi/openmpi/4.1.1/gcc-9.3.0 # Load the application and dependencies
+    module load mpi/openmpi/5.0.3/gcc-14.1.0 # Load the application and dependencies
     module load <mpi-application>
 
     mpirun <application-command> -n 32 [options] # Run the code
@@ -186,10 +189,10 @@ For illustration, example jobscripts for CPU and GPU applications are shown belo
     #SBATCH --nodes=1
     #SBATCH --ntasks=4
     #SBATCH --mem-per-cpu=5G
-    #SBATCH --partition=k2-gpu
-    #SBATCH --gres=gpu:1g.10gb:1
+    #SBATCH --partition=k2-gpu-a100mig
+    #SBATCH --gres=gpu:2g.20gb:1
 
-    module load matlab/R2022a
+    module load matlab/R2024a
 
     # Ulster University (UU) users must use UU's Matlab licence by declaring
     # (removing comments) these environment variables:
