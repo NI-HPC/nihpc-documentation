@@ -1,4 +1,4 @@
-![NI-HPC LOGO](https://www.ni-hpc.ac.uk/sites/media/Media,983417,smxx.JPG)
+![NI-HPC LOGO](assets/banner.jfif)
 
 ## Introduction
 
