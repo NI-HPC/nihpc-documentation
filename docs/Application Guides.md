@@ -167,7 +167,7 @@ apps/anaconda3/2024.10/bin
     (e.g., number of layers, neurons per layer, selection between different transfer or optimization functions, etc.)
 
     ``` bash title="Pytorch-Raytune install" linenums="1"
-    srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
+    srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:2g.20gb:1 --time=3:00:00 --mem=20G --pty bash
     module load apps/anaconda3/2024.06/bin
     module load libs/nvidia-cuda/11.8.0/bin
     . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
@@ -180,7 +180,7 @@ apps/anaconda3/2024.10/bin
     (py39torchRayA100) conda deactivate
     ```
 
-    Line 1 above shows the use of GPU slice partitions: `--gres gpu:1g.10gb:1`. 
+    Line 1 above shows the use of GPU slice partitions: `--gres gpu:2g.20gb:1`. 
     As currently there are available 28 slices in Kelvin2, this partition is much less busy than the other GPU partitions, 
     and at the same time would allow the users to install software in the A100 GPU devices, which would guarantee backward compatibility with GPU devices.
 
@@ -215,7 +215,7 @@ apps/anaconda3/2024.10/bin
     For installing tensorflow-gpu and Ray Tune, follow these instructions:
 
     ``` bash title="Tensorflow-Raytune install" linenums="1"
-    srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
+    srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:2g.20gb:1 --time=3:00:00 --mem=20G --pty bash
     module load apps/anaconda3/2024.06/bin
     module load libs/nvidia-cuda/11.8.0/bin
     . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
@@ -239,7 +239,7 @@ apps/anaconda3/2024.10/bin
     In this example, users can overview how to install Bindsnet in Kelvin2:
 
     ``` bash title="Bindsnet install" linenums="1"
-    srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
+    srun -p k2-gpu-interactive -N 1 -n 1 --gres gpu:2g.20gb:1 --time=3:00:00 --mem=20G --pty bash
     module load apps/anaconda3/2024.06/bin
     . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
     conda create --name bindsnet
@@ -273,7 +273,7 @@ apps/anaconda3/2024.10/bin
     #SBATCH -N 1
     #SBATCH -n 4
     #SBATCH --mem=40G
-    #SBATCH --partition=k2-gpu
+    #SBATCH --partition=k2-gpu-v100
     #SBATCH --gres gpu:v100:1
     ##SBATCH --gres gpu:a100:1
     #SBATCH --time=03:00:00
@@ -336,7 +336,7 @@ apps/anaconda3/2024.10/bin
     Here, we present instructions to install and use Jupyter notebook in Kelvin2, in the case for training deep learning networks with tensorflow-gpu.
 
     ``` bash title="Jupyter notebook installation" linenums="1"
-    srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
+    srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:2g.20gb:1 --time=3:00:00 --mem=20G --pty bash
     #srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
     module load apps/anaconda3/2024.06/bin
     . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
@@ -356,7 +356,7 @@ apps/anaconda3/2024.10/bin
     To launch the server, run these commands:
 
     ``` bash linenums="1"
-    srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
+    srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:2g.20gb:1 --time=3:00:00 --mem=20G --pty bash
     #srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash
     module load apps/anaconda3/2024.06/bin
     . /opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
@@ -598,7 +598,7 @@ apps/anaconda3/2024.10/bin
     First, get a GPU node and launch vnc server from the node, for example:
 
     ``` bash
-    srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:1g.10gb:1 --time=3:00:00 --mem=20G --pty bash
+    srun -p k2-gpu-interactive -N 1 -n 4 --gres gpu:2g.20gb:1 --time=3:00:00 --mem=20G --pty bash
     vncserver
     ```
 
@@ -626,8 +626,8 @@ apps/anaconda3/2024.10/bin
     #SBATCH -n 4
     #SBATCH --mem=20G
     #SBATCH --time=00:10:00
-    #SBATCH --partition=k2-gpu
-    #SBATCH --gres=gpu:1g.10gb:1
+    #SBATCH --partition=k2-gpu-a100mig
+    #SBATCH --gres=gpu:2g.20gb:1
     #SBATCH --output=test_%j.log
 
     module load matlab/R2024a
@@ -658,8 +658,8 @@ Python is a high-level, multi-purpose programming language that support several 
 
 ``` bash title="Python modules"
 apps/python/2.7.17/gcc-14.1.0
-apps/python3/3.10.5/gcc-14.1.0
-python3/3.10.5/gcc-9.3.0
+apps/python3/3.10.5/gcc-11.2.0
+apps/python3/3.10.5/gcc-14.1.0 *default*
 apps/python3/3.12.4/gcc-14.1.0
 ```
 
