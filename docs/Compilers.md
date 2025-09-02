@@ -14,21 +14,29 @@ If you are going to use a precompiled library, be sure to use for your applicati
 
 ## ***Compilers available on Kelvin-2***
 
-On Kelvin-2, for usual programming languages as C, C++, or Fortran, we recommend using the GNU compiling suite. It is well tested, and it is currently the fastest for AMD systems. It is also a universal compiling suite, so any code will compile with it.
+On Kelvin-2, for usual programming languages as C, C++, or Fortran, we recommend using the GNU compiling suite. It is well tested, and it is currently the fastest for AMD systems. 
+It is also a universal compiling suite, so any code will compile with it.
 
-    compilers/gcc/10.2.0
     compilers/gcc/10.3.0
-    compilers/gcc/5.1.0
-    compilers/gcc/6.4.0
-    compilers/gcc/7.2.0
-    compilers/gcc/9.3.0
+    compilers/gcc/11.2.0
+    compilers/gcc/13.2.0
+    compilers/gcc/14.1.0
+    compilers/gcc/system *default*
 
-Other compilers installed in Kelvin-2 are the AOCC, Clang (as part of library llvm), or Nvidia nvhp (only in GPU nodes).
+Other compilers installed in Kelvin-2 are Clang (as part of library llvm), Nvidia nvhpc (only in Nvidia GPU nodes), AMD-Rocm (Only AMD GPU nodes).
 
-    aoc-compiler/2.2.0
-    aoc-compiler/3.0.0
-    llvm/12.0.0/gcc-9.3.0
+    libs/llvm/15.0.3
+    libs/llvm/17.0.1
     nvhpc/22.7
+    nvhpc/22.7-byo
+    nvhpc/22.7-nompi
+    nvhpc/23.11
+    nvhpc/24.5
+    nvhpc-hpcx/23.11-cuda11
+    nvhpc-hpcx/23.11-cuda12
+    nvhpc-hpcx/24.5
+    amd-rocm/rocm-6.2.0
+    amd-rocm/rocm-6.3.3
 
 In consistence with the general practice, jobs must not be run into the login nodes, and that includes compilation. 
 The compilers check the hardware of the node where they are working, and they produce an executable adapted to the architecture of the node. 
@@ -41,9 +49,9 @@ so a program compiled in the standard nodes will work in the high-memory nodes.
 
 One exception is to compile a program designed to work on the GPUs. 
 In this case, the session must be allocated in the k2-gpu partition, and it must be allocated a GPU resource where the application will be executed. 
-For compatibility, we recommend using the A100 GPUs to compile. Further details about how to compile for GPUs will be stated in the specific section.
+For compatibility, we recommend using the H100 GPUs to compile Nvidia CUDA codes. Further details about how to compile for GPUs will be stated in the specific section.
 
-    srun --pty --partition=k2-gpu --ntasks=1 --mem-per-cpu=4G --gres gpu:a100:1 bash
+    srun --pty --partition=k2-gpu-interactive --time=3:00:00 --ntasks=1 --mem-per-cpu=4G --gres gpu:h100:1 bash
 
 ### ***Example of compilation***
 
@@ -62,7 +70,7 @@ hello_world.c
 Compile and execute
 
     [<user>@login1 [kelvin2] ~]$ srun --pty --partition=k2-hipri --ntasks=1 --mem-per-cpu=100M bash
-    [<user>@node162 [kelvin2] ~]$ module load compilers/gcc/9.3.0
+    [<user>@node162 [kelvin2] ~]$ module load compilers/gcc/14.1.0
     [<user>@node162 [kelvin2] ~]$ gcc -O2 -o hello_world.x hello_world.c
     [<user>@node162 [kelvin2] ~]$ ./hello_world.x
     Hello World...
@@ -104,7 +112,7 @@ hello_world_omp.c
 Compile and execute
 
     [<user>@login1 [kelvin2] ~]$ srun --pty --partition=k2-hipri --ntasks=8 --mem-per-cpu=100M bash
-    [<user>@node162 [kelvin2] ~]$ module load compilers/gcc/9.3.0
+    [<user>@node162 [kelvin2] ~]$ module load compilers/gcc/14.1.0
     [<user>@node162 [kelvin2] ~]$ gcc -O2 -fopenmp -o hello_world_omp.x hello_world_omp.c
     [<user>@node162 [kelvin2] ~]$ ./hello_world_omp.x
     Hello World... from thread = 3
@@ -128,21 +136,16 @@ Compile and execute
 
  The available MPI implementations on Kelvin-2 are
 
-     mpi/mpich/3.0.4/gcc-4.8.5
-     mpi/mpich/4.1.1/gcc-10.3.0
-     mpi/mpich2/1.5/gcc-4.8.5
-     mpi/mvapich/1.2.0-3635/gcc-4.8.5
-     mpi/mvapich2/1.6/gcc-4.8.5
-     mpi/openmpi/1.10.1/gcc-4.8.5
-     mpi/openmpi/1.10.2/gcc-4.8.5
-     mpi/openmpi/1.10.7/gcc-4.8.5
-     mpi/openmpi/3.1.3/gcc-4.8.5
-     mpi/openmpi/3.1.4/gcc-4.8.5
-     mpi/openmpi/4.0.0/gcc-4.8.5
-     mpi/openmpi/4.0.0/gcc-4.8.5+ucx-1.4.0
-     mpi/openmpi/4.0.0/gcc-5.1.0
-     mpi/openmpi/4.0.4/gcc-9.3.0+ucx-1.8.0
-     mpi/openmpi/4.1.1/gcc-9.3.0
+    mpi/openmpi/4.1.6/gcc-8.5.0
+    mpi/openmpi/5.0.3/gcc-13.2.0+nvidia-cuda-12.8.0
+    mpi/openmpi/5.0.3/gcc-14.1.0 *default*
+    mpi/openmpi/5.0.3/gcc-8.5.0
+    mpi/openmpi/5.0.7/gcc-14.1.0+rocm
+    mpi/intel-mpi/2016u1/bin
+    mpi/intel-mpi/2020u4/bin
+    mpi/mvapich2/2.3.4/gdr
+    mpi/mvapich2/2.3.5/gdr
+    mpi/mvapich2/2.3.5/gdr+slurm
 
  We hardly recommend using the OpenMPI compiling suite, it has been widely tested, and it works stable on Kelvin-2.
  The MPICh suite has not been so deeply tested, and it is not guaranteed that applications compiled with it will work on Kelvin-2.
@@ -170,7 +173,7 @@ Compile and execute
     OMPI_MPICXX
     OMPI_FC
 
- For example, to compile using the MPI library v4.1.1 with the clang compiler included in the module llvm v12.0.0, the environment variables should be defined as
+ For example, to compile using the MPI library v5.0.3 with the clang compiler included in the module llvm v17.0.1, the environment variables should be defined as
 
     export OMPI_MPICC=clang
     export OMPI_MPICXX=clang++
@@ -211,8 +214,8 @@ Compile and execute
 Compile and execute
 
     [<user>@login1 [kelvin2] ~]$ srun --pty --partition=k2-hipri --ntasks=8 --mem-per-cpu=100M bash
-    [<user>@node162 [kelvin2] ~]$ module load compilers/gcc/9.3.0
-    [<user>@node162 [kelvin2] ~]$ module load mpi/openmpi/4.0.4/gcc-9.3.0+ucx-1.8.0
+    [<user>@node162 [kelvin2] ~]$ module load compilers/gcc/14.1.0
+    [<user>@node162 [kelvin2] ~]$ module load mpi/openmpi/5.0.3/gcc-14.1.0
     [<user>@node162 [kelvin2] ~]$ mpicc -O2 -o hello_world_mpi.x hello_world_mpi.c
     [<user>@node162 [kelvin2] ~]$ mpirun -np 8 ./hello_world_mpi.x
     Hello world from processor node162.pri.kelvin2.alces.network, rank 0 out of 8 processors
@@ -267,8 +270,8 @@ Compile and execute
 
 Compile and execute
 
-    [<user>@login1 [kelvin2] ~]$ srun --pty --partition=k2-gpu --ntasks=1 --mem-per-cpu=1G --gres gpu:a100:1 bash
-    [<user>@gpu111 [kelvin2] ~]$ module load nvhpc/22.7
+    [<user>@login1 [kelvin2] ~]$ srun --pty --partition=k2-gpu-interactive --time=3:00:00 --ntasks=1 --mem-per-cpu=1G --gres gpu:h100:1 bash
+    [<user>@gpu111 [kelvin2] ~]$ module load nvhpc/24.5
     [<user>@gpu111 [kelvin2] ~]$ nvc -O2 -acc -o hello_world_openacc.x hello_world_openacc.c
     [<user>@gpu111 [kelvin2] ~]$ ./hello_world_openacc.x
     Hello world from OpenACC
@@ -278,10 +281,10 @@ Compile and execute
 ## ***Compiling applications that use GPUs***
 
 To compile a program designed to work on the Graphical Processing Units of Kelvin-2, it is essential that it is compiled in a GPU node, so the queue "k2-gpu" must be allocated.
-For backwards compatibility, the program must be compiled in the latest model of GPU present in the machine, in our case, the Nvidia A100 GPUs.
+For backwards compatibility, the program must be compiled in the latest model of GPU present in the machine, in our case, the Nvidia H100 GPUs.
 So, when allocating the interactive session to carry out the compilation, the resource A100 should be allocated with the flag
 
-    --gres gpu:a100:1
+    --gres gpu:h100:1
 
 During the last years, the popularity of the specific GPU-focused programming languages, such as CUDA, has decreased.
 This is due to the publicly-available libraries have become more and more complete, and practically any mathematical operation that can benefit of the acceleration advantages of a GPU is present on those libraries.
@@ -289,7 +292,12 @@ Some examples are "cublas" for linear-algebra operations, and "cufft" for Fourie
 Most of the libraries designed to work in the GPUs of Kelvin-2 can be found in the module for the Nvidia CUDA drivers:
 
     libs/nvidia-cuda/11.0.3/bin
-    libs/nvidia-cuda/11.7.0/bin
+    libs/nvidia-cuda/11.1.1/bin
+    libs/nvidia-cuda/11.6.2/bin
+    libs/nvidia-cuda/11.8.0/bin
+    libs/nvidia-cuda/12.4.0/bin
+    libs/nvidia-cuda/12.8.0/bin
+    libs/nvidia-cuda/9.0.176.4/bin
 
 These libraries can be including in the executables, as usual adding the flag "-l" to the compilation command, for example
 
@@ -301,6 +309,11 @@ Currently, the Nvidia compiler is the only one installed on Kelvin-2 that can co
     nvhpc/22.7
     nvhpc/22.7-byo
     nvhpc/22.7-nompi
+    nvhpc/23.11
+    nvhpc/24.5
+    nvhpc-hpcx/23.11-cuda11
+    nvhpc-hpcx/23.11-cuda12
+    nvhpc-hpcx/24.5
 
 This compiler can recognise the sections of the code in an intelligent way, so there is no need of more flags to point that it includes CUDA routines.
 To compile with Nvidia compiler, just use its usual commands
