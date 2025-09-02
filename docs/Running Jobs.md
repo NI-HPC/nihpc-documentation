@@ -112,7 +112,7 @@ Jobs submitted to the k2-gpu, k2-gpu-interactive (for [interactive jobs](#intera
 |-|-|-|
 |32 x Tesla V100 PCIe 32Gb (4 GPUs on 8 Nodes)|`#SBATCH --gres=gpu:v100:1`|`#SBATCH --partition=k2-gpu-v100`|
 |12 x Tesla A100 SXM4 80GB (4 GPUs on 3 Nodes)|`#SBATCH --gres=gpu:a100:1`|`#SBATCH --partition=k2-gpu-a100`|
-|12 x CI slices of a Tesla A100 SXM4 80GB (7 slices on 4 GPUs on 1 Node)| `#SBATCH --gres=gpu:2g.20gb:1`|`#SBATCH --partition=k2-gpu-a100mig`|
+|12 x CI slices of a Tesla A100 SXM4 80GB (7 slices on 4 GPUs on 1 Node)| `#SBATCH --gres=gpu:2g.20gb:1` <br> `#SBATCH --gres=gpu:3g.30gb:1`|`#SBATCH --partition=k2-gpu-a100mig`|
 | 4 x Tesla H100 HBM3 80GB (4 GPUs on 1 Node) |`#SBATCH --gres=gpu:h100:1`|`#SBATCH --partition=k2-gpu-h100`|
 | 8 x AMD ROCm  (8 GPUs on 1 Node )|`#SBATCH --gres=gpu:mi300x:1`|`#SBATCH --partition=k2-gpu-amd`|
 | 4 x Intel (4 GPUs on 1 Node)|`#SBATCH --gres=gpu:i1100:1`|`#SBATCH --partition=k2-gpu-intel`|
