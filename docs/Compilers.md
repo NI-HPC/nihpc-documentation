@@ -271,18 +271,18 @@ Compile and execute
 Compile and execute
 
     [<user>@login1 [kelvin2] ~]$ srun --pty --partition=k2-gpu-interactive --time=3:00:00 --ntasks=1 --mem-per-cpu=1G --gres gpu:h100:1 bash
-    [<user>@gpu111 [kelvin2] ~]$ module load nvhpc/24.5
-    [<user>@gpu111 [kelvin2] ~]$ nvc -O2 -acc -o hello_world_openacc.x hello_world_openacc.c
-    [<user>@gpu111 [kelvin2] ~]$ ./hello_world_openacc.x
+    [<user>@gpu121 [kelvin2] ~]$ module load nvhpc/24.5
+    [<user>@gpu121 [kelvin2] ~]$ nvc -O2 -acc -o hello_world_openacc.x hello_world_openacc.c
+    [<user>@gpu121 [kelvin2] ~]$ ./hello_world_openacc.x
     Hello world from OpenACC
     Number of available OpenACC devices: 1
     Type of available OpenACC devices: 4
 
 ## ***Compiling applications that use GPUs***
 
-To compile a program designed to work on the Graphical Processing Units of Kelvin-2, it is essential that it is compiled in a GPU node, so the queue "k2-gpu" must be allocated.
-For backwards compatibility, the program must be compiled in the latest model of GPU present in the machine, in our case, the Nvidia H100 GPUs.
-So, when allocating the interactive session to carry out the compilation, the resource A100 should be allocated with the flag
+To compile a program designed to work on the Graphical Processing Units of Kelvin-2, it is essential that it is compiled in a GPU node, so the queue "k2-gpu-interactive" must be allocated.
+For backwards compatibility, the program must be compiled in the latest model of GPU present in the machine, in the example case, the Nvidia H100 GPUs.
+So, when allocating the interactive session to carry out the compilation, the resource H100 should be allocated with the flag
 
     --gres gpu:h100:1
 
@@ -299,12 +299,18 @@ Most of the libraries designed to work in the GPUs of Kelvin-2 can be found in t
     libs/nvidia-cuda/12.8.0/bin
     libs/nvidia-cuda/9.0.176.4/bin
 
+Or for AMD ROCM codes
+
+    amd-rocm/rocm-6.2.0
+    amd-rocm/rocm-6.3.3
+
 These libraries can be including in the executables, as usual adding the flag "-l" to the compilation command, for example
 
     gcc <flags> -lcublas -lcufft -o my_executable.x my_GPU_program.c
 
-Nevertheless, if you require a very specific operation, that is not present in the available libraries, and it is necessary to use CUDA, the Nvidia compiler can be used.
-Currently, the Nvidia compiler is the only one installed on Kelvin-2 that can compile CUDA code
+Nevertheless, if you require a very specific operation, that is not present in the available libraries, and it is necessary to use CUDA, the device-specific GPU compilers can be used.
+
+For Nvidia-CUDA
 
     nvhpc/22.7
     nvhpc/22.7-byo
@@ -315,10 +321,66 @@ Currently, the Nvidia compiler is the only one installed on Kelvin-2 that can co
     nvhpc-hpcx/23.11-cuda12
     nvhpc-hpcx/24.5
 
-This compiler can recognise the sections of the code in an intelligent way, so there is no need of more flags to point that it includes CUDA routines.
-To compile with Nvidia compiler, just use its usual commands
+And for AMD-ROCM
 
-    nvc <flags> -o my_executable.x my_CUDA_C_program.c
-    nvc++ <flags> -o my_executable.x my_CUDA_C++_program.cxx
-    nvfortran <flags> -o my_executable.x my_CUDA_Fortran_program.for
+    amd-rocm/rocm-6.2.0
+    amd-rocm/rocm-6.3.3
 
+This compilers can recognise the sections of the code in an intelligent way, so there is no need of more flags to point that it includes CUDA or HIP routines.
+To compile with Nvidia or ROCM compiler, just use its usual commands
+
+    nvc <flags> -o my_executable.x my_CUDA_C_program.cu
+    nvc++ <flags> -o my_executable.x my_CUDA_C++_program.cu
+    nvfortran <flags> -o my_executable.x my_CUDA_Fortran_program.cuf
+    hipcc <flags> -o my_executable.x my_HIP_C++_program.hip
+    hipfc <flags> -o my_executable.x my_HIP_Fortran_program.f90
+
+ hello_world_cuda.cu
+
+    #include <stdio.h>
+    #include <cuda.h>
+    
+    __global__ void cuda_hello(){
+        printf("Hello World from GPU!\n");
+    }
+    
+    int main() {
+        cuda_hello<<<1,1>>>();
+        cudaDeviceSynchronize();
+        return 0;
+    }
+
+Compile and execute, CUDA.
+
+    [<user>@login2 [kelvin2] ~]$ srun --pty --partition=k2-gpu-interactive --ntasks=1 --mem-per-cpu=2G --time=03:00:00 --gres gpu:h100:1 bash
+    [<user>@gpu121 [kelvin2] ~]$ module load nvhpc/24.5
+    [<user>@gpu121 [kelvin2] ~]$ nvcc -O2 -o hello_world_cuda.x hello_world_cuda.cu
+    [<user>@gpu121 [kelvin2] ~]$ ./hello_world_cuda.x
+    Hello World from GPU!
+
+ hello_world_hip.hip
+
+    #include <iostream>
+    #include <hip/hip_runtime.h>
+    
+    __global__ void hello_world_kernel()
+    {
+        printf("Hello World from GPU!\n");
+    }
+    
+    int main()
+    {
+        int error;
+        hello_world_kernel<<<1, 1>>>();
+        error=hipGetLastError();
+        error=hipDeviceSynchronize();
+        return 0;
+    }
+
+Compile and execute, AMD-ROCM.
+
+    [<user>@login2 [kelvin2] ~]$ srun --pty --partition=k2-gpu-interactive --ntasks=1 --mem-per-cpu=2G --time=03:00:00 --gres gpu:mi300x:1 bash
+    [<user>@gpu123 [kelvin2] ~]$ module load amd-rocm/rocm-6.3.3
+    [<user>@gpu123 [kelvin2] ~]$ hipcc -O2 -o hello_world_hip.x hello_world_hip.hip
+    [<user>@gpu123 [kelvin2] ~]$ ./hello_world_hip.x
+    Hello World from GPU!
