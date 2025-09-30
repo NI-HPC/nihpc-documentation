@@ -68,6 +68,8 @@ The main Kelvin2 partitions along with their time limits and computational resou
 |k2-gpu-a100|3 days|4 GPUs on 3 Nodes|80GB|
 |k2-gpu-a100mig|3 days|7 slices on 4 GPUs on 1 Node|80GB|
 |k2-gpu-h100|3 days|4 GPUs on 1 Node|80GB|
+|k2-gpu-amd|3 days|8 GPUs on 1 Node| - |
+|k2-gpu-intel|3 days|4 GPUs on 1 Node| - |
 |k2-epsrc-gpu-<model\>|3 days|"|"|
 
 Other partitions are also available, including some for specific research groups. A comprehensive list of Kelvin2 nodes, their associated partitions and their computational resources can be found using the [sinfo command](https://slurm.schedmd.com/sinfo.html){target=_blank}.
