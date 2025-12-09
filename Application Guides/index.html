@@ -1,0 +1,1905 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Running%20Jobs/">
+      
+      
+        <link rel="next" href="../Compilers/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Application Guides - NIHPC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slates" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#application-guides" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="NIHPC Documentation" class="md-header__button md-logo" aria-label="NIHPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NIHPC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Application Guides
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slates" data-md-color-primary="red" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Kelvin2%20Overview/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kelvin2 Overview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Connecting%20to%20Kelvin2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Connecting to Kelvin2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Quickstart%20Guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick-Start Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Running%20Jobs/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Running Jobs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Application Guides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Compilers/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Compilers
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Kelvin2%20Hardware/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kelvin2 Hardware
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../McClayRDS/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  McClayRDS
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Green%20HPC/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Green HPC: Sustainable Use of High Performance Computing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="NIHPC Documentation" class="md-nav__button md-logo" aria-label="NIHPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NIHPC Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kelvin2%20Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kelvin2 Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connecting%20to%20Kelvin2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting to Kelvin2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Quickstart%20Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick-Start Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running%20Jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Guides
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Guides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abaqus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abaqus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Abaqus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installed-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anaconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anaconda
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anaconda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installed-versions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-notes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-examples_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ansys
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installed-versions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-notes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-examples_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MATLAB
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MATLAB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installed-versions_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-examples_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installed-versions_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-notes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-examples_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="R">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installed-versions_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-notes_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-examples_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#singularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Singularity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Singularity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installed-versions_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-examples_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compilers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kelvin2%20Hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kelvin2 Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../McClayRDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    McClayRDS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Green%20HPC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Green HPC: Sustainable Use of High Performance Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="application-guides">Application Guides</h1>
+<p>Here we will provide information on some of the most popular centrally installed applications and software tools on Kelvin2.</p>
+<h2 id="abaqus"><strong>Abaqus</strong></h2>
+<p><a href="https://www.technia.com/software/simulia/abaqus" target="_blank">https://www.technia.com/software/simulia/abaqus</a></p>
+<p>"The best suite of non-linear Finite Element Analysis (FEA) and Computational Fluid Dynamics (CFD) solvers."</p>
+<h3 id="installed-versions">Installed versions</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span>abaqus/2023
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span>abaqus/2024
+</code></pre></div>
+<h3 id="usage-notes">Usage notes</h3>
+<details class="note">
+<summary>Licensing</summary>
+<p>Simulia Abaqus is a licensed software. In order to use it, users have to be registered in the license server. If you are not already included in the license server, you must contact the person in charge of it:</p>
+<p>QUB: John Megahey <a href="mailto:smae-ithelp@qub.ac.uk">smae-ithelp@qub.ac.uk</a></p>
+<p>Ulster: <a href="mailto:jm.sanchez-bornot@ulster.ac.uk">Jose Sanchez Bornot</a></p>
+<p>When the module is loaded, no license parameters are loaded. They should be added manually.</p>
+<p>To run Abaqus, it is necessary to create an environment file</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span>abaqus_v6.env
+</code></pre></div>
+<p>with all the necessary parameters. This file is particular to the user.</p>
+<p>To activate the license, the following lines should be added at the end of the environment file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="nv">LICENSE_SERVER_TYPE</span><span class="o">=</span>flex
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">   </span><span class="nv">FLEX_LICENSE_CONFIG</span><span class="o">=</span>&lt;port&gt;@&lt;server&gt;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">   </span><span class="nv">ACADEMIC_TYPE</span><span class="o">=</span>research
+</code></pre></div>
+<p>Contact the license administrators to get the information on the port and server.</p>
+</details>
+<details class="note">
+<summary>User Manual</summary>
+<p>Visit the Simulia <a href="https://www.3ds.com/products/simulia/abaqus" target="_blank">Abaqus</a> web page to have access to the help material.</p>
+<p>And the community <a href="https://eu1.iam.3dexperience.3ds.com/login" target="_blank">forum</a>.</p>
+</details>
+<h3 id="usage-examples">Usage examples</h3>
+<details class="example">
+<summary>Abaqus batch script example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">   </span><span class="c1">#!/bin/bash</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">   </span><span class="c1">#SBATCH --job-name=Cunha_LVI_DD_An_74J_Shell_R</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">   </span><span class="c1">#SBATCH --ntasks=20</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">   </span><span class="c1">#SBATCH --partition=k2-medpri</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">   </span><span class="c1">#SBATCH --nodes=1</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">   </span><span class="c1">#SBATCH --mem-per-cpu=12G</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">   </span><span class="c1">#SBATCH --time=23:59:00</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">   </span><span class="c1">#SBATCH --output=std_output_%j</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">   </span><span class="c1">#SBATCH --mail-user=&lt;myemail&gt;@qub.ac.uk</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">   </span><span class="c1">#SBATCH --mail-type=BEGIN,END,FAIL</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">   </span>module<span class="w"> </span>load<span class="w"> </span>abaqus/2024
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">   </span><span class="nb">unset</span><span class="w"> </span>SLURM_GTIDS
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">   </span>abaqus<span class="w"> </span>analysis<span class="w"> </span><span class="nv">cpus</span><span class="o">=</span><span class="m">20</span><span class="w"> </span><span class="nv">job</span><span class="o">=</span>Cunha_LVI_DD_An_74J_Shell_R<span class="w"> </span><span class="nv">double</span><span class="o">=</span>BOTH<span class="w"> </span><span class="nv">mp_mode</span><span class="o">=</span>mpi<span class="w"> </span>int
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;here&quot;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">   </span><span class="nb">pwd</span>
+</code></pre></div>
+</details>
+<h2 id="anaconda"><strong>Anaconda</strong></h2>
+<p><a href="https://www.anaconda.com/" target="_blank">https://www.anaconda.com/</a></p>
+<p>Anaconda is a software that allows the users to manage environments to install local libraries and software, particularly Python and R programming languages, for scientific computing. 
+Thus, greatly easing software management and reducing possible incompatibilities among different tools, libraries or software versions.</p>
+<h3 id="installed-versions_1">Installed versions</h3>
+<div class="highlight"><span class="filename">Anaconda modules</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>apps/anaconda3/2024.06/bin
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>apps/anaconda3/2024.10/bin
+</code></pre></div>
+<h3 id="usage-notes_1">Usage notes</h3>
+<details class="note">
+<summary>Setting up the environment variables</summary>
+<p>When the particular module for Anaconda is loaded, some environment variables must be set up in the system to make it work properly.</p>
+<div class="highlight"><span class="filename">Language variables</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LANGUAGE</span><span class="o">=</span>en_US.UTF-8
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8
+</code></pre></div>
+<p>The Anaconda distributions come with a generic environment script.
+This script should be loaded in the environment of the user to allow all conda features, for example activating and deactivating conda environments.
+These environment scripts are specific to the conda version, and if an environment script is loaded for a different conda version than the one loaded in the module,
+it will fall into incompatibilities and will make the conda applications installed not to work.</p>
+<p>To load the environment scripts, it is done in <code>bash</code> and <code>ksh</code> shells preceding the name of the script with the special character dot <code>.</code>,
+or in csh with the key word <code>source</code>.</p>
+<p>The path to these environment scripts are
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>&lt;Anaconda_root&gt;/bin/etc/profile.d/conda.sh
+</code></pre></div></p>
+<p>For example, in the case of the module for the version 2024.10 of Anaconda:</p>
+<p><div class="highlight"><span class="filename">bash, ksh</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>.<span class="w"> </span>/opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.10/bin/etc/profile.d/conda.sh
+</code></pre></div>
+<div class="highlight"><span class="filename">csh</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">source</span><span class="w"> </span>/opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.10/bin/etc/profile.d/conda.sh
+</code></pre></div></p>
+<p>For users who are going to work with Anaconda in a regular basis, it is a good practice to include the definition of the language variables and
+the call to the environment script in the start-up script
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>~/.bashrc
+</code></pre></div>
+In this case, keep in mind to modify this line in your <code>.bashrc</code> script if you change the Anaconda version for your work.</p>
+</details>
+<details class="note">
+<summary>Redirecting default installation paths to Scratch directory</summary>
+<p>When installing packages with Anaconda, it is recommended that users redirect the default installation paths to their Scratch directory. 
+This is because the installations typically generate a very large number of small files which can breach the 100k file limit in place on the Home directory. 
+This can be done by modifying the environment variables <code>CONDA_PKGS_DIRS</code> and <code>CONDA_ENVS_PATH</code> as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mkdir<span class="w"> </span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_PKGS_DIRS</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/pkgs
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_ENVS_PATH</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/envs
+</code></pre></div>
+</details>
+<details class="note">
+<summary>Selecting the correct hardware prior to installation</summary>
+<p>When installing packages with Anaconda, it is critical to perform the installation on a node with the appropriate hardware in place. 
+For example, if you intend to run your code using a GPU device, but install that code (or its dependencies) using a node without one, the GPU device may not being recognised at runtime.<br />
+This may result in your program crashing, or instead run in the CPU cores by default. 
+In the latter case, your jobs may take significantly longer to complete and also would also cause the requested GPU resources to be sitting idle and unavailable to other users.</p>
+</details>
+<details class="note">
+<summary>Complexities in installing packages with Python and Anaconda</summary>
+<p>When installing packages with both Python and Anaconda, there may be complexities related to package version incompatibilities, 
+the proper Python version (maybe an older or newer version is strictly required), package installation order, or the possible necessity to install supporting libraries. 
+The first three "Usage examples" below demonstrate the installation of some commonly used applications.</p>
+</details>
+<h3 id="usage-examples_1">Usage examples</h3>
+<details class="example">
+<summary>Installing PyTorch and Ray Tune</summary>
+<p>In this example, PyTorch is installed together with Ray Tune. 
+The latter is a tool used for deep learning models optimization as it helps with the evaluation and selection of model hyperparameters 
+(e.g., number of layers, neurons per layer, selection between different transfer or optimization functions, etc.)</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Pytorch-Raytune install</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-gpu-interactive<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>--gres<span class="w"> </span>gpu:2g.20gb:1<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>20G<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>module<span class="w"> </span>load<span class="w"> </span>apps/anaconda3/2024.06/bin
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>module<span class="w"> </span>load<span class="w"> </span>libs/nvidia-cuda/11.8.0/bin
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>.<span class="w"> </span>/opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>py39torchRayA100<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>conda<span class="w"> </span>activate<span class="w"> </span>py39torchRayA100
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="o">(</span>py39torchRayA100<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="o">(</span>py39torchRayA100<span class="o">)</span><span class="w"> </span>python3
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="o">(</span>py39torchRayA100<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>pytorch-lightning<span class="w"> </span>-c<span class="w"> </span>conda-forge
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="o">(</span>py39torchRayA100<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="s2">&quot;ray-air&quot;</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="o">(</span>py39torchRayA100<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>deactivate
+</code></pre></div></td></tr></table></div>
+<p>Line 1 above shows the use of GPU slice partitions: <code>--gres gpu:2g.20gb:1</code>. 
+As currently there are available 28 slices in Kelvin2, this partition is much less busy than the other GPU partitions, 
+and at the same time would allow the users to install software in the A100 GPU devices, which would guarantee backward compatibility with GPU devices.</p>
+<p>Lines 2-5 setup the environment variables, create an Anaconda environment named <code>py39torchRayA100</code> while installing Python version 3.9, and activate the environment. 
+This Python version is strictly required here as current Ray Tune installation version may crash with newer Python versions than 3.10.</p>
+<p>The next lines 6-10 are needed to install the required tools, particularly Ray Tune is installed in line 9. 
+Here, the package "ray-air" contains most of the provided functionality by Ray Tune (Data, Train, Tune, Serve, etc.).</p>
+<p>After installation, users must check that PyTorch can correctly utilize the GPU resources available. 
+For example, users must see something similar to the following output when running the PyTorch's functions:</p>
+<div class="highlight"><span class="filename">Testing that torch can see GPU resources</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>py39torchRayA100
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="o">(</span>py39torchRayA100<span class="o">)</span><span class="w"> </span>python3
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>torch
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>&gt;&gt;&gt;<span class="w"> </span>torch.cuda.is_available<span class="o">()</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>True
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>&gt;&gt;&gt;<span class="w"> </span>torch.cuda.current_device<span class="o">()</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="m">0</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>&gt;&gt;&gt;<span class="w"> </span>torch.cuda.device<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>&lt;torch.cuda.device<span class="w"> </span>object<span class="w"> </span>at<span class="w"> </span>0x7fec6d471850&gt;
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>&gt;&gt;&gt;<span class="w"> </span>torch.cuda.get_device_name<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="s1">&#39;NVIDIA A100-SXM4-80GB MIG 1g.10gb&#39;</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>&gt;&gt;&gt;<span class="w"> </span>exit<span class="o">()</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="o">(</span>py39torchRayA100<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>deactivate
+</code></pre></div>
+</details>
+<details class="example">
+<summary>Installing tensorflow-gpu and Ray Tune</summary>
+<p>For installing tensorflow-gpu and Ray Tune, follow these instructions:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tensorflow-Raytune install</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">7</a></span>
+<span class="normal"><a href="#__codelineno-13-8">8</a></span>
+<span class="normal"><a href="#__codelineno-13-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-gpu-interactive<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>--gres<span class="w"> </span>gpu:2g.20gb:1<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>20G<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>module<span class="w"> </span>load<span class="w"> </span>apps/anaconda3/2024.06/bin
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>module<span class="w"> </span>load<span class="w"> </span>libs/nvidia-cuda/11.8.0/bin
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>.<span class="w"> </span>/opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>tensorflowRayA100<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>conda<span class="w"> </span>activate<span class="w"> </span>tensorflowRayA100
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="o">(</span>tensorflowRayA100<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>anaconda<span class="w"> </span>tensorflow-gpu
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="o">(</span>tensorflowRayA100<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="s2">&quot;ray-air&quot;</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="o">(</span>tensorflowRayA100<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>deactivate
+</code></pre></div></td></tr></table></div>
+<p>Users also must test that tensorflow can correctly see the GPU resources. For that purpose, after installing the software, use the following commands:</p>
+<div class="highlight"><span class="filename">Testing that tensorflow can see GPU resources</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>tensorflowRayA100
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">(</span>tensorflowRayA100<span class="o">)</span><span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import tensorflow as tf; print(tf.config.list_physical_devices(&#39;GPU&#39;))&quot;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="o">(</span>tensorflowRayA100<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>deactivate
+</code></pre></div>
+</details>
+<details class="example">
+<summary>Installing and using Bindsnet</summary>
+<p>In this example, users can overview how to install Bindsnet in Kelvin2:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bindsnet install</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-gpu-interactive<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>--gres<span class="w"> </span>gpu:2g.20gb:1<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>20G<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>module<span class="w"> </span>load<span class="w"> </span>apps/anaconda3/2024.06/bin
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>.<span class="w"> </span>/opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>bindsnet
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/envs/bindsnet/bin/:<span class="nv">$PATH</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>conda<span class="w"> </span>activate<span class="w"> </span>bindsnet
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="o">(</span>bindsnet<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="o">(</span>bindsnet<span class="o">)</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/BindsNET/bindsnet.git
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="o">(</span>bindsnet<span class="o">)</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>bindsnet
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="o">(</span>bindsnet<span class="o">)</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pytest
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="o">(</span>bindsnet<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>deactivate
+</code></pre></div></td></tr></table></div>
+<p>The apparent simplicity of above instructions hides some complexities. 
+For example, the declaration of the "PATH" environment variable in line 4 may be neccesary when PyPi/pip is combined with Anaconda, 
+as some of the installed packages may still be missing after installation, unexpectedly. 
+Also, in line 6, Python's version 3.10 was installed as Bindsnet most recent version at this moment seems not to be compatible with older Python versions.</p>
+<p>Finally, when installing Bindsnet in line 7, it automatically finds and installs all needed dependencies, including the compatible versions for torch, torchvision, etc. 
+Therefore, we do not recommend to install any package before bindsnet, otherwise bindsnet installation can fail. 
+Then, in line 8, the command <code>python3 -m pip show bindsnet</code> allows to get the physical path where Bindsnet is installed, which may be necessary to access some folders with testing examples and scripts. 
+For the same reasons, users may want to install the package "pytest", as it is done in line 9.</p>
+<p>As Bindsnet will install automatically PyTorch as one of its dependencies, we strongly recommend to test that PyTorch can see the GPU resources, as discussed in the Installing Pytorch and Ray Tune example.</p>
+<p>The following is an example of sbatch script that uses the installed Bindsnet package, which can be launched from command line using the command <code>sbatch bindsnet_example.sh</code>. 
+Of course, users must have first to prepare their python codes, with the main file name provided in line 19. </p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">bindsnet_example.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span>
+<span class="normal"><a href="#__codelineno-16-17">17</a></span>
+<span class="normal"><a href="#__codelineno-16-18">18</a></span>
+<span class="normal"><a href="#__codelineno-16-19">19</a></span>
+<span class="normal"><a href="#__codelineno-16-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="c1">#SBATCH --job-name=nnet</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="c1">#SBATCH -N 1</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="c1">#SBATCH -n 4</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="c1">#SBATCH --mem=40G</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="c1">#SBATCH --partition=k2-gpu-v100</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="c1">#SBATCH --gres gpu:v100:1</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="c1">##SBATCH --gres gpu:a100:1</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="c1">#SBATCH --time=03:00:00</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="c1">#SBATCH --output=nnet_%j.log</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>module<span class="w"> </span>load<span class="w"> </span>apps/anaconda3/2024.06/bin
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a>.<span class="w"> </span>/opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_PKGS_DIRS</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/pkgs
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_ENVS_PATH</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/envs
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/envs/bindsnet/bin/:<span class="nv">$PATH</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a>conda<span class="w"> </span>activate<span class="w"> </span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/envs/bindsnet
+<a id="__codelineno-16-19" name="__codelineno-16-19"></a>
+<a id="__codelineno-16-20" name="__codelineno-16-20"></a>python3<span class="w"> </span>&lt;code_file_name&gt;.py
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="example">
+<summary>Installing R Packages (e.g. HOMER) with Anaconda</summary>
+<p>To create an environment on the user's scratch folder to install a particular version of R, follow these instructions:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">R installation in an Anaconda environment</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span>
+<span class="normal"><a href="#__codelineno-17-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-hipri<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>16G<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>module<span class="w"> </span>load<span class="w"> </span>apps/anaconda3/2024.06/bin
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>.<span class="w"> </span>/opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_PKGS_DIRS</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/pkgs
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_ENVS_PATH</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/envs
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>R412env<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>r-base<span class="o">=</span><span class="m">4</span>.1.2
+</code></pre></div></td></tr></table></div>
+<p>Here, the preferred version (4.1.2) is specified in line 5 with the argument "r-base=4.1.2". 
+For other versions, check the Anaconda R's online documentation, for example <a href="https://anaconda.org/conda-forge/r-base" target="_blank">here</a> 
+or <a href="https://docs.anaconda.com/free/anaconda/packages/using-r-language/" target="_blank">here</a> for more information.</p>
+<p><strong>Installation Example: HOMER</strong></p>
+<p>The following example illustrates how to use this environment for installing a particular R's package 
+<a href="http://homer.ucsd.edu/homer/introduction/install.html" target="_blank">HOMER</a>, proceeding from a clean/new Kelvin2 terminal connection.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-hipri<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>16G<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>module<span class="w"> </span>load<span class="w"> </span>apps/anaconda3/2024.06/bin
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>.<span class="w"> </span>/opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_PKGS_DIRS</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/pkgs
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_ENVS_PATH</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/conda/envs
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>conda<span class="w"> </span>activate<span class="w"> </span>R412env
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="o">(</span>R412env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>defaults
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="o">(</span>R412env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>bioconda
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="o">(</span>R412env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>conda-forge
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="o">(</span>R412env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>samtools<span class="w"> </span>r-essentials<span class="w"> </span>bioconductor-deseq2<span class="w"> </span>bioconductor-edger
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="o">(</span>R412env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>homer
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="o">(</span>R412env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>update<span class="w"> </span>homer
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="o">(</span>R412env<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>deactivate
+</code></pre></div>
+<p>Users should notice that when working with R inside an Anaconda environment, the libraries must be installed with the command <code>conda install ...</code>. Whereas, the packages can be installed either in the same way by using conda install, or from the R's command line; for instance, using the function <code>installed.packages()</code>. </p>
+</details>
+<details class="example">
+<summary>Jupyter Notebook with TensorFlow in Anaconda</summary>
+<p>Here, we present instructions to install and use Jupyter notebook in Kelvin2, in the case for training deep learning networks with tensorflow-gpu.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Jupyter notebook installation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span>
+<span class="normal"><a href="#__codelineno-19-6">6</a></span>
+<span class="normal"><a href="#__codelineno-19-7">7</a></span>
+<span class="normal"><a href="#__codelineno-19-8">8</a></span>
+<span class="normal"><a href="#__codelineno-19-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-gpu-interactive<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>--gres<span class="w"> </span>gpu:2g.20gb:1<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>20G<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="c1">#srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>module<span class="w"> </span>load<span class="w"> </span>apps/anaconda3/2024.06/bin
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>.<span class="w"> </span>/opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>tf-gpu<span class="w"> </span>tensorflow-gpu<span class="w"> </span><span class="nv">numpy</span><span class="o">=</span><span class="m">1</span>.19.2
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="c1"># export PATH=/mnt/scratch2/users/$USER/conda/envs/tf-gpu/bin/:$PATH</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a>conda<span class="w"> </span>activate<span class="w"> </span>tf-gpu
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="o">(</span>tf-gpu<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>anaconda<span class="w"> </span>jupyter
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="o">(</span>tf-gpu<span class="o">)</span><span class="w"> </span>conda<span class="w"> </span>deactivate
+</code></pre></div></td></tr></table></div>
+<p>If the user does not need to use GPU resources, for example, the plan is to run on CPU cores, then <code>srun</code> instruction in line 2 must be used, instead of line 1, 
+to get an interactive session in CPU nodes for the installation. 
+Also, ignore the installation of tensorflow part if the only purpose is to install Jupyter notebook to be used with other packages, such as Pandas or NumPy. 
+In that case, just create the environment in line 4 with the following instruction: <code>conda create -n &lt;environment_name&gt;</code>.</p>
+<p>Finally, to access Jupyter notebook remotely from the (local) browser in the user's PC/laptop, the user must launch a Jupyter server connection and create a tunnel to it. 
+To launch the server, run these commands:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-gpu-interactive<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>--gres<span class="w"> </span>gpu:2g.20gb:1<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>20G<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="c1">#srun -p k2-hipri -N 1 -n 4 --time=3:00:00 --mem=16G --pty bash</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>module<span class="w"> </span>load<span class="w"> </span>apps/anaconda3/2024.06/bin
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>.<span class="w"> </span>/opt/gridware/depots/54e7fb3c/el8/pkg/apps/anaconda3/2024.06/bin/etc/profile.d/conda.sh
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>conda<span class="w"> </span>activate<span class="w"> </span>tf-gpu
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="o">(</span>tf-gpu<span class="o">)</span><span class="w"> </span>jupyter<span class="w"> </span>notebook<span class="w"> </span>--ip<span class="w"> </span><span class="k">$(</span>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>eno1<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;inet &#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d/<span class="w"> </span>-f1<span class="k">)</span><span class="w"> </span>--no-browser
+</code></pre></div></td></tr></table></div>
+<p>Jupyter notebook has to run in a compute node. That is why first need to allocate a compute node with <code>srun</code> command as shown in line 1 or 2 for a GPU or CPU node. 
+Here, the server is lauched in line 5. Some critical output is printer, mainly the IP and port number, which should be annotated for using later to create the tunnel.</p>
+<p>For the last part, open a local terminal in the user's PC/laptop, and enter the following instructions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">55890</span><span class="w"> </span>-i<span class="w"> </span>/path/to/kelvin/key<span class="w"> </span>&lt;user_name&gt;@login.kelvin.alces.network<span class="w"> </span>-NL<span class="w"> </span><span class="m">8888</span>:10.10.15.3:8888
+</code></pre></div>
+<p>This establishes the tunnel using <code>ssh</code> command, where it has been assumed that the IP and port number annotated above are "10.10.15.3" and "8888", respectively.</p>
+<p>If not errors are reported during the execution of these commands, and the terminal looks like hanging out, then everything is ok, 
+and the last step is to open a local browser and enter the adress "http://127.0.0.1 ...", which must have been shown in the output when the server connection was created.</p>
+</details>
+<h2 id="ansys"><strong>Ansys</strong></h2>
+<p><a href="https://www.ansys.com" target="_blank">https://www.ansys.com</a></p>
+<p>"For more than 50 years, Ansys software has enabled innovators across industries to push boundaries with the predictive power of simulation. From sustainable transportation and advanced semiconductors, to satellite systems and life-saving medical devices, the next great leaps in human advancement will be powered by Ansys." - <a href="https://www.ansys.com/en-gb/company-information" target="_blank">Ansys Company Information</a></p>
+<h3 id="installed-versions_2">Installed versions</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="w">  </span>ansys/v231/qub
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span>ansys/v231/ulster
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span>ansys/v241/qub
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span>ansys/v241/ulster
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">  </span>ansys/v242/qub
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">  </span>ansys/v242/ulster
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span>ansys/v251/qub
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">  </span>ansys/v251/ulster
+</code></pre></div>
+<h3 id="usage-notes_2">Usage notes</h3>
+<details class="note">
+<summary>Licensing</summary>
+<p>Ansys is a licensed software. In order to use it, users have to be registered in the license server. If you are not already included in the license server, you must contact the person in charge of it:</p>
+<p>QUB: John Megahey <a href="mailto:smae-ithelp@qub.ac.uk">smae-ithelp@qub.ac.uk</a></p>
+<p>Ulster: <a href="mailto:jm.sanchez-bornot@ulster.ac.uk">Jose Sanchez Bornot</a></p>
+<p>When the module is loaded, the suffixes "qub" and "ulster" specify which license-server parameters are uploaded.
+Users have read permission exclusively to the module file associated to their university, both have campus licence.
+Contact the license administrator for details.</p>
+</details>
+<details class="note">
+<summary>User Manual</summary>
+<p>The user manual for Ansys is not publicly available, and only licensed users can access to it. To access to this material, you must <a href="https://customercenter.ansys.com" target="_blank">register on the Ansys website</a>.</p>
+</details>
+<h3 id="usage-examples_2">Usage examples</h3>
+<details class="example">
+<summary>Ansys Fluent batch script example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="c1">#SBATCH --job-name=myfluentjob</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1">#SBATCH --output=myoutput.out</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="c1">#SBATCH --error=myerror.err</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="c1">#SBATCH --nodes=1</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="c1">#SBATCH --ntasks=32</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="c1">#SBATCH --partition=k2-hipri</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="c1">#SBATCH --mem=100G</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>module<span class="w"> </span>load<span class="w"> </span>ansys/v241
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="c1">## QUB&#39;s license, already loaded with the module</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="c1">#export ANSYSLI_SERVERS=2325@143.117.212.118</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="c1">#export ANSYSLMD_LICENSE_FILE=1055@143.117.212.118</span>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="c1">## Ulster&#39;s license</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="c1">#export ANSYSLI_SERVERS=2325@193.61.145.219</span>
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="c1">#export ANSYSLMD_LICENSE_FILE=1055@193.61.145.219</span>
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a>
+<a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a><span class="c1"># Set architecture of the CPU (in this case amd64) and environment variables</span>
+<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FLUENT_ARCH</span><span class="o">=</span>lnamd64
+<a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FL_TMPDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>/tmp
+<a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a>
+<a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a><span class="c1"># Create our hosts file </span>
+<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a>srun<span class="w"> </span>hostname<span class="w"> </span>-s<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>&gt;<span class="w"> </span>hosts.<span class="nv">$SLURM_JOB_ID</span>.txt
+<a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a>
+<a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a><span class="c1">#Run Ansys Fluent.</span>
+<a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a>fluent<span class="w"> </span>3ddp<span class="w"> </span>-g<span class="w"> </span>-t<span class="nv">$SLURM_NTASKS</span><span class="w"> </span>-pinfiniband<span class="w"> </span>-mpi<span class="o">=</span>openmpi<span class="w"> </span>-cnf<span class="o">=</span>hosts.<span class="nv">$SLURM_JOB_ID</span>.txt<span class="w"> </span>-i<span class="w"> </span>my_fluent_input<span class="w"> </span>&gt;<span class="w"> </span>my_fluent_output.res
+</code></pre></div>
+</details>
+<h2 id="matlab"><strong>MATLAB</strong></h2>
+<p><a href="https://uk.mathworks.com/products/matlab.html" target="_blank">https://uk.mathworks.com/products/matlab.html</a></p>
+<p>"MATLAB is a programming platform designed specifically for engineers and scientists to analyze and design systems and products that transform our world. The heart of MATLAB is the MATLAB language, a matrix-based language allowing the most natural expression of computational mathematics." - <a href="https://www.mathworks.com/discovery/what-is-matlab.html" target="_blank">What is MATLAB?</a></p>
+<h3 id="installed-versions_3">Installed versions</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="w">   </span>matlab/R2019a
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">   </span>matlab/R2020b
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">   </span>matlab/R2022a
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">   </span>matlab/R2024a
+</code></pre></div>
+<h3 id="usage-examples_3">Usage examples</h3>
+<details class="example">
+<summary>Interactive mode (CLI) on a CPU compute node</summary>
+<p>One way to run MATLAB interactively is to request a compute node with the <code>srun</code> command. For example, request 1 compute node and 10 cores in "k2-hipri" partition:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-hipri<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>--mem<span class="o">=</span>10G<span class="w"> </span>--time<span class="o">=</span><span class="m">1</span>:00:00<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>module<span class="w"> </span>load<span class="w"> </span>matlab/R2024a
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>matlab<span class="w"> </span>-nosplash<span class="w"> </span>-nodisplay
+</code></pre></div>
+<p>Then, inside MATLAB, notice that calling the function <code>feature</code> (line #1 below) must show that exactly 10 CPU cores are available, corresponding to the number of cores allocated above with the <code>srun</code> command. Next, the codes launches the parallel pool (<code>parpool</code>) for the "local" cluster requesting the same amount of workers as the cores allocated in this example.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">feature</span><span class="p">(</span><span class="s">&#39;numcores&#39;</span><span class="p">)</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parpool</span><span class="p">(</span><span class="s">&#39;local&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="c">% 10 cores requested in this example</span>
+</code></pre></div>
+<p>More robust, the number of workers can be read and set automatically to launch the parallel pool:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">num_workers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">str2double</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;SLURM_CPUS_ON_NODE&#39;</span><span class="p">))</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parpool</span><span class="p">(</span><span class="s">&#39;local&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">num_workers</span><span class="p">)</span>
+</code></pre></div>
+<p>Finally, you can run your MATLAB parallel code, which must include a "parfor" loop. For example, the following code illustrates the use of <code>parfor</code> and Monte Carlo simulation to calculate an approximate value for <span class="arithmatex">\( \pi \)</span>, using the formula (line #7):</p>
+<div class="arithmatex">\[
+\pi \approx \lim_{N_{MC} \to \infty} {4 \sum_{n=1}^{N_{MC}} I(x_i^2 + y_i^2 &lt; 1.0) \over N_{MC}}; x_i, y_i \sim \mathcal{U}(0,1),
+\]</div>
+<p>where the symbol <span class="arithmatex">\( \mathcal{U}(0,1) \)</span> represents the random uniform distribution for the indicated interval and <span class="arithmatex">\( I(boolean) \)</span> is an indicator function.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Matlab code for parfor demonstration</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span>
+<span class="normal"><a href="#__codelineno-28-4">4</a></span>
+<span class="normal"><a href="#__codelineno-28-5">5</a></span>
+<span class="normal"><a href="#__codelineno-28-6">6</a></span>
+<span class="normal"><a href="#__codelineno-28-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1e6</span><span class="p">;</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">num_workers</span><span class="p">);</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="k">parfor</span><span class="w"> </span><span class="nb">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">num_workers</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="w">    </span><span class="n">xy</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">    </span><span class="n">out</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sum</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">xy</span><span class="o">.^</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="k">end</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="n">mypi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">4</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">num_workers</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>At the end of the parallel computations, the allocated parpool within MATLAB can be released with the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nb">delete</span><span class="p">(</span><span class="n">gcp</span><span class="p">(</span><span class="s">&#39;nocreate&#39;</span><span class="p">))</span>
+</code></pre></div>
+</details>
+<details class="example">
+<summary>Interactive mode (GUI) on a CPU compute node</summary>
+<p>First, get a compute node and launch vnc server from the node, for example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-hipri<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">6</span><span class="w"> </span>--mem<span class="o">=</span>10G<span class="w"> </span>--time<span class="o">=</span><span class="m">1</span>:00:00<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>vncserver
+</code></pre></div>
+<p>In this case, let us assume that the output of <code>vncserver</code> is</p>
+<p><em>New 'node117.pri.kelvin2.alces.network:1 (jsan)' desktop is node117.pri.kelvin2.alces.network:1</em></p>
+<p><em>Starting applications specified in /users/jsan/.vnc/xstartup</em><br>
+<em>Log file is /users/jsan/.vnc/node117.pri.kelvin2.alces.network:1.log</em></p>
+<p>Then, open a local terminal and launch a forward tunnel to the compute node by following these steps:</p>
+<ol>
+<li>Go to the directory which contains the Kelvin key in your PC/laptop
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nb">cd</span><span class="w"> </span>/drives/c/Users/jsan/.ssh
+</code></pre></div></li>
+<li>Create the tunnel (in this example illustrated with the command below, all input sent via port <em>5903</em> on your local host is being forwarded via port <em>5901</em> to the compute node <em>"node117.pri.kelvin2.alces.network"</em>. If the <code>vncserver</code> output above were <em>"node117.pri.kelvin2.alces.network:7"</em>, then the port number will be <em>5907</em> instead of <em>5901</em>. Clearly, users must replace the username <em>"jsan"</em> and the key's filename by the corresponding information for their accounts)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">5903</span>:node117.pri.kelvin2.alces.network:5901<span class="w"> </span>-p<span class="w"> </span><span class="m">55890</span><span class="w"> </span>-i<span class="w"> </span>./kelvin-key<span class="w"> </span>jsan@login.kelvin.alces.network
+</code></pre></div></li>
+<li>Connect to the tunnel using your installed VNC application (the example shown in the figure below uses TurboVNC in Windows OS. More details or troubleshooting can be found in the VNC session)
+<img alt="Image title" src="../assets/TurboVNC.jpg" /></li>
+<li>Once in the opened terminal for the connected compute node, launch the MATLAB application:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>module<span class="w"> </span>load<span class="w"> </span>matlab/R2024a
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>matlab
+</code></pre></div></li>
+</ol>
+<p>This time MATLAB GUI will be opened as shown in the figure below. For a better experience, use the "full screen" button in the VNC toolbar, and use the combination keys <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd></span> + F to escape from the full screen mode. Note also that using the instruction <code>feature('numcores')</code> inside the MATLAB GUI session shows correctly the number of allocated CPU cores in the compute node (CPU cores equal to 6 in this example).</p>
+<p><img alt="Image title" src="../assets/TurboVNC_Matlab.jpg" width="800" /></p>
+</details>
+<details class="example">
+<summary>MATLAB script used in following GPU examples</summary>
+<p>The following code <code>matlab_gpu_example.m</code> is to be used in the following GPU examples</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">matlab_gpu_example.m</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-34-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-34-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-34-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-34-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-34-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-34-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-34-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-34-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-34-10">10</a></span>
+<span class="normal"><a href="#__codelineno-34-11">11</a></span>
+<span class="normal"><a href="#__codelineno-34-12">12</a></span>
+<span class="normal"><a href="#__codelineno-34-13">13</a></span>
+<span class="normal"><a href="#__codelineno-34-14">14</a></span>
+<span class="normal"><a href="#__codelineno-34-15">15</a></span>
+<span class="normal"><a href="#__codelineno-34-16">16</a></span>
+<span class="normal"><a href="#__codelineno-34-17">17</a></span>
+<span class="normal"><a href="#__codelineno-34-18">18</a></span>
+<span class="normal"><a href="#__codelineno-34-19">19</a></span>
+<span class="normal"><a href="#__codelineno-34-20">20</a></span>
+<span class="normal"><a href="#__codelineno-34-21">21</a></span>
+<span class="normal"><a href="#__codelineno-34-22">22</a></span>
+<span class="normal"><a href="#__codelineno-34-23">23</a></span>
+<span class="normal"><a href="#__codelineno-34-24">24</a></span>
+<span class="normal"><a href="#__codelineno-34-25">25</a></span>
+<span class="normal"><a href="#__codelineno-34-26">26</a></span>
+<span class="normal"><a href="#__codelineno-34-27">27</a></span>
+<span class="normal"><a href="#__codelineno-34-28">28</a></span>
+<span class="normal"><a href="#__codelineno-34-29">29</a></span>
+<span class="normal"><a href="#__codelineno-34-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="c">% The Mandelbrot algorithm iterates over a grid of real and imaginary parts.</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="c">% The following code defines the number of iterations, grid size, and grid limits.</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="n">maxIterations</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="n">gridSize</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="nb">xlim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.748766713922161</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.748766707771757</span><span class="p">];</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="nb">ylim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.123640844894862</span><span class="p">,</span><span class="w">  </span><span class="mf">0.123640851045266</span><span class="p">];</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7"></a>
+<a id="__codelineno-34-8" name="__codelineno-34-8"></a><span class="c">% Use the gpuArray function to transfer data to the GPU and create a gpuArray object.</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gpuArray</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="nb">xlim</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">gridSize</span><span class="p">);</span>
+<a id="__codelineno-34-10" name="__codelineno-34-10"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gpuArray</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">ylim</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="nb">ylim</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">gridSize</span><span class="p">);</span>
+<a id="__codelineno-34-11" name="__codelineno-34-11"></a>
+<a id="__codelineno-34-12" name="__codelineno-34-12"></a><span class="c">% Many Matlab functions support gpuArrays and run directly on the GPU (e.g., meshgrid)</span>
+<a id="__codelineno-34-13" name="__codelineno-34-13"></a><span class="c">% The function &quot;ones&quot;, below, create an array of ones directly on the GPU</span>
+<a id="__codelineno-34-14" name="__codelineno-34-14"></a><span class="p">[</span><span class="n">xGrid</span><span class="p">,</span><span class="n">yGrid</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-34-15" name="__codelineno-34-15"></a><span class="n">z0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">xGrid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>1<span class="nb">i</span><span class="o">*</span><span class="n">yGrid</span><span class="p">;</span>
+<a id="__codelineno-34-16" name="__codelineno-34-16"></a><span class="nb">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">z0</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;gpuArray&#39;</span><span class="p">);</span>
+<a id="__codelineno-34-17" name="__codelineno-34-17"></a>
+<a id="__codelineno-34-18" name="__codelineno-34-18"></a><span class="c">% The code below implements the Mandelbrot algorithm, fully running on the GPU</span>
+<a id="__codelineno-34-19" name="__codelineno-34-19"></a><span class="n">z</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">z0</span><span class="p">;</span>
+<a id="__codelineno-34-20" name="__codelineno-34-20"></a><span class="k">for</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="n">maxIterations</span>
+<a id="__codelineno-34-21" name="__codelineno-34-21"></a><span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">z</span><span class="o">.*</span><span class="n">z</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z0</span><span class="p">;</span>
+<a id="__codelineno-34-22" name="__codelineno-34-22"></a><span class="w">    </span><span class="n">inside</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-34-23" name="__codelineno-34-23"></a><span class="w">    </span><span class="nb">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">inside</span><span class="p">;</span>
+<a id="__codelineno-34-24" name="__codelineno-34-24"></a><span class="k">end</span>
+<a id="__codelineno-34-25" name="__codelineno-34-25"></a><span class="nb">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">log</span><span class="p">(</span><span class="nb">count</span><span class="p">);</span>
+<a id="__codelineno-34-26" name="__codelineno-34-26"></a>
+<a id="__codelineno-34-27" name="__codelineno-34-27"></a><span class="c">% Plot the results</span>
+<a id="__codelineno-34-28" name="__codelineno-34-28"></a><span class="nb">imagesc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="nb">count</span><span class="p">);</span>
+<a id="__codelineno-34-29" name="__codelineno-34-29"></a><span class="nb">colormap</span><span class="p">([</span><span class="nb">jet</span><span class="p">();</span><span class="w"> </span><span class="nb">flipud</span><span class="p">(</span><span class="nb">jet</span><span class="p">());</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="s">0</span><span class="w"> </span><span class="s">0])</span><span class="p">;</span>
+<a id="__codelineno-34-30" name="__codelineno-34-30"></a><span class="n">axis</span><span class="w"> </span><span class="s">off</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="example">
+<summary>Interactive mode (GUI) on a GPU compute node</summary>
+<p>First, get a GPU node and launch vnc server from the node, for example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-gpu-interactive<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>--gres<span class="w"> </span>gpu:2g.20gb:1<span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>20G<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>vncserver
+</code></pre></div>
+<p>Then (as with the instructions in the 'Interactive mode (GUI) on a CPU compute node' example above),</p>
+<ol>
+<li>Open a local terminal and launch a forward tunnel to the GPU node;</li>
+<li>Use a VNC application to connect to the tunnel</li>
+<li>Load and launch the MATLAB software.</li>
+</ol>
+<p>To test the use of the GPU device within MATLAB code, copy and paste the lines from the <code>matlab_gpu_example.m</code> script file above.</p>
+<p>The following results should appear when you run this script in the GUI that is running on the cluster's GPU, as per below. As shown in the MATLAB command window, the output of calling the function <code>whos</code> reveal the many variables (gpuArray objects) that are still allocated on the GPU.</p>
+<p><img alt="Image title" src="../assets/cluster_gpu_matlab.png" width="1000" /></p>
+</details>
+<details class="example">
+<summary>Batch script example (GPU)</summary>
+<p>The most convenient way to use the cluster resources may be to perform MATLAB calculations in background, using <code>sbatch</code> functionality instead of <code>srun</code>. This is critical, mainly for analysis where calculations may take several hours or days. To demonstrate this, simply copy and paste the following "sbatch" script, called <code>gpu_example.sh</code>, as an example which relies on the same script prepared above to calculate the Mandelbrot solution.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">gpu_example.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-36-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-36-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-36-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-36-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-36-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-36-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-36-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-36-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-36-10">10</a></span>
+<span class="normal"><a href="#__codelineno-36-11">11</a></span>
+<span class="normal"><a href="#__codelineno-36-12">12</a></span>
+<span class="normal"><a href="#__codelineno-36-13">13</a></span>
+<span class="normal"><a href="#__codelineno-36-14">14</a></span>
+<span class="normal"><a href="#__codelineno-36-15">15</a></span>
+<span class="normal"><a href="#__codelineno-36-16">16</a></span>
+<span class="normal"><a href="#__codelineno-36-17">17</a></span>
+<span class="normal"><a href="#__codelineno-36-18">18</a></span>
+<span class="normal"><a href="#__codelineno-36-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a>
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="c1">#SBATCH --job-name=test</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="c1">#SBATCH -N 1</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="c1">#SBATCH -n 4</span>
+<a id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="c1">#SBATCH --mem=20G</span>
+<a id="__codelineno-36-7" name="__codelineno-36-7"></a><span class="c1">#SBATCH --time=00:10:00</span>
+<a id="__codelineno-36-8" name="__codelineno-36-8"></a><span class="c1">#SBATCH --partition=k2-gpu-a100mig</span>
+<a id="__codelineno-36-9" name="__codelineno-36-9"></a><span class="c1">#SBATCH --gres=gpu:2g.20gb:1</span>
+<a id="__codelineno-36-10" name="__codelineno-36-10"></a><span class="c1">#SBATCH --output=test_%j.log</span>
+<a id="__codelineno-36-11" name="__codelineno-36-11"></a>
+<a id="__codelineno-36-12" name="__codelineno-36-12"></a>module<span class="w"> </span>load<span class="w"> </span>matlab/R2024a
+<a id="__codelineno-36-13" name="__codelineno-36-13"></a>
+<a id="__codelineno-36-14" name="__codelineno-36-14"></a><span class="c1"># Ulster University (UU) users must use UU&#39;s licence by declaring</span>
+<a id="__codelineno-36-15" name="__codelineno-36-15"></a><span class="c1"># (removing comments) these environmet variables:</span>
+<a id="__codelineno-36-16" name="__codelineno-36-16"></a><span class="c1">#export MLM_LICENSE_FILE=27000@193.61.190.229</span>
+<a id="__codelineno-36-17" name="__codelineno-36-17"></a><span class="c1">#export LM_LICENSE_FILE=27000@193.61.190.229</span>
+<a id="__codelineno-36-18" name="__codelineno-36-18"></a>
+<a id="__codelineno-36-19" name="__codelineno-36-19"></a>matlab<span class="w"> </span>-nosplash<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;matlab_gpu_example; saveas(gcf, &#39;Mandelbrot&#39;); exit;&quot;</span>
+</code></pre></div></td></tr></table></div>
+In the code above, line #19, MATLAB is called in "nosplash" and "nodisplay" mode to execute the <code>matlab_gpu_example.m</code> script. Besides, note that the code will run in background, i.e., without display, therefore it must use some MATLAB function like <code>saveas</code>, as shown in the code, which saves the graphical output. As a result, the MATLAB file that must be listed now in the working directory, <code>Mandelbrot.fig</code>, should contain the visual results. Finally, to run this "sbatch" script, run the following command in your terminal.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>sbatch<span class="w"> </span>gpu_example.sh
+</code></pre></div>
+</details>
+<h2 id="python"><strong>Python</strong></h2>
+<p><a href="https://www.python.org/" target="_blank">https://www.python.org/</a></p>
+<p>Python is a high-level, multi-purpose programming language that support several paradigms such as structural, functional and object-oriented programming, together with garbage collection, in order to support code readability and fast development. With the provision of multiple specialized libraries, Python has become one of the most preferred languages for scientific programming, including machine learning and artificial intelligence, as well as bioinformatics among many other applications.</p>
+<h3 id="installed-versions_4">Installed versions</h3>
+<div class="highlight"><span class="filename">Python modules</span><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>apps/python/2.7.17/gcc-14.1.0
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>apps/python3/3.10.5/gcc-11.2.0
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>apps/python3/3.10.5/gcc-14.1.0<span class="w"> </span>*default*
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>apps/python3/3.12.4/gcc-14.1.0
+</code></pre></div>
+<h3 id="usage-notes_3">Usage notes</h3>
+<details class="note">
+<summary>Anaconda environments</summary>
+<p>It is often recommended to use <a href="#anaconda">Anaconda environments</a> to install Python packages rather than pip. This is to reduce the risk of installation problems like package incompatibilities and the user not having write permissions to Kelvin2 system paths.</p>
+</details>
+<details class="note">
+<summary>Installing pip packages in Scratch Directory</summary>
+<p>It is recommended that users declare/modify the environment variables "PATH" and "PYTHONPATH towards locations in the Shared Scratch directory in order to preserve space/quota in the Home directory.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>mkdir<span class="w"> </span>/mnt/scratch2/users/<span class="nv">$USER</span>/gridware
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/gridware/bin/:<span class="nv">$PATH</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span>/mnt/scratch2/users/<span class="nv">$USER</span>/gridware/site-packages/:<span class="nv">$PYTHONPATH</span>
+</code></pre></div>
+This creates and uses the folder "gridware" in users' Scratch directory, so the pip install will be redirected to the Scratch directory instead of the Home directory.</p>
+</details>
+<details class="note">
+<summary>Default Python version on Kelvin2</summary>
+<p>On internet blogs/forums, users will often find the recommendation <code>pip install &lt;package name&gt;</code> to install a particular tool. In this case, for the same install in Kelvin2, it is recommended to precede the command with "python3 -m" because by default pip will refer to the Python 2.7 version, which is always available from command line in Kelvin2. That is, always use <code>python3 -m pip install &lt;package name&gt;</code> to install the package.</p>
+</details>
+<h3 id="usage-examples_4">Usage examples</h3>
+<details class="example">
+<summary>Installing reportseff in Home directory</summary>
+<p>The next code snippet illustrates simply how to load a module and install a package in the default location (gridware folder located in the users' home folder). This approach is only recommended for small installs.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>module<span class="w"> </span>load<span class="w"> </span>apps/python3/3.12.4/gcc-14.1.0
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>reportseff
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>reportseff<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
+</code></pre></div>
+<p>Reportseff is a very usefull tool to monitor the efficient utilization of cluster resources (time, RAM, CPU/GPU) that may be critical for your work. It should be used in addition to <code>sacct</code> command, because it helps to optimize your jobs which may translates on significantly lower queue times. For instance, the reportseff's outcome below shows some job statistics (greed/red colour codes highlight good/poor resources utilization) for selected jobs.</p>
+<p><img alt="Image title" src="../assets/reportseff.png" width="500" /></p>
+</details>
+<h2 id="r"><strong>R</strong></h2>
+<p><a href="https://www.r-project.org/">https://www.r-project.org/</a></p>
+<p>R is an open-source and free software which provides a programming language designed purposedly for statistical analyses. It is also highly preferable for data mining tasks and machine learning analysis. </p>
+<h3 id="installed-versions_5">Installed versions</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>apps/R/4.4.1/gcc-14.1.0+openblas-0.3.27
+</code></pre></div>
+<h3 id="usage-notes_4">Usage notes</h3>
+<details class="note">
+<summary>Setting R environment</summary>
+<p>By default, installing packages in R will fill up the users' quota (~50 GB hard disk + 100,000 files limit); therefore, it is advisable that the users setup an installation path for the packages. Below, the default install location is redirected to the user's scratch folder. The most transparent way to perform this operation is to create the file ".Renviron" in the home folder, which will keep the necessary R's environment variables to setup correctly the settings.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Setup R environment</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-42-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-42-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-42-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-42-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-42-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-42-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-42-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-42-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-42-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-42-10">10</a></span>
+<span class="normal"><a href="#__codelineno-42-11">11</a></span>
+<span class="normal"><a href="#__codelineno-42-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-hipri<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>16G<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-42-2" name="__codelineno-42-2"></a>mkdir<span class="w"> </span>/mnt/scratch2/users/<span class="nv">$USER</span>/R
+<a id="__codelineno-42-3" name="__codelineno-42-3"></a>mkdir<span class="w"> </span>/mnt/scratch2/users/<span class="nv">$USER</span>/R/lib
+<a id="__codelineno-42-4" name="__codelineno-42-4"></a><span class="nb">cd</span><span class="w"> </span>~
+<a id="__codelineno-42-5" name="__codelineno-42-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;R_LIBS_USER=/mnt/scratch2/users/</span><span class="nv">$USER</span><span class="s2">/R/lib&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>.Renviron
+<a id="__codelineno-42-6" name="__codelineno-42-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;R_LIBS=/mnt/scratch2/users/</span><span class="nv">$USER</span><span class="s2">/R/lib&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.Renviron
+<a id="__codelineno-42-7" name="__codelineno-42-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;PKG_CONFIG_PATH=/mnt/scratch2/</span><span class="nv">$USER</span><span class="s2">/R/lib/pkgconfig&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.Renviron
+<a id="__codelineno-42-8" name="__codelineno-42-8"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.Renviron
+<a id="__codelineno-42-9" name="__codelineno-42-9"></a>module<span class="w"> </span>load<span class="w"> </span>apps/R/4.4.1/gcc-14.1.0+openblas-0.3.27
+<a id="__codelineno-42-10" name="__codelineno-42-10"></a>R
+<a id="__codelineno-42-11" name="__codelineno-42-11"></a>&gt;<span class="w"> </span>.libPaths<span class="o">()</span>
+<a id="__codelineno-42-12" name="__codelineno-42-12"></a>&gt;<span class="w"> </span>quit<span class="o">()</span>
+</code></pre></div></td></tr></table></div>
+<p>In line 1, a compute node is requested to perform packages installation and work with R. Do not use login nodes to perform these operations. Lines 2-3 create the needed R's library folder. If they are not created, environment initialization may fail to be setup correctly. This operation needs to be done only one time at the very beginning of your R utilization in Kelvin2. It is neccesary to create ".Renviron" in the home folder which is guaranteed in line 4. Then, the ".Renviron" file is prepared in line 5-8. Notice, in line 8, this file must end with a newline character. If not, the instruction in the last line will be ignored without warning nor error. The environment file is also setup once, or every time the user wish to change the default install and library folders. Once the R's module is loaded and R is lauched in lines 9-10, the test of running the R's function <code>.libPaths()</code> must show correctly the new library path (line 11).</p>
+</details>
+<h3 id="usage-examples_5">Usage examples</h3>
+<details class="example">
+<summary>Installing R packages, e.g. BiocManager, DESeq2</summary>
+<p>After setting up correctly the ".Renviron" file as presented above, installation of R's packages can proceed inside the R's application as follows:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-43-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-43-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-43-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-43-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-43-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-43-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-43-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-43-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-43-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-43-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1"></a>srun<span class="w"> </span>-p<span class="w"> </span>k2-hipri<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>--time<span class="o">=</span><span class="m">3</span>:00:00<span class="w"> </span>--mem<span class="o">=</span>16G<span class="w"> </span>--pty<span class="w"> </span>bash
+<a id="__codelineno-43-2" name="__codelineno-43-2"></a>module<span class="w"> </span>load<span class="w"> </span>libpng/16
+<a id="__codelineno-43-3" name="__codelineno-43-3"></a>module<span class="w"> </span>load<span class="w"> </span>apps/R/4.4.1/gcc-14.1.0+openblas-0.3.27
+<a id="__codelineno-43-4" name="__codelineno-43-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HDF5_USE_FILE_LOCKING</span><span class="o">=</span><span class="s1">&#39;FALSE&#39;</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5"></a>R
+<a id="__codelineno-43-6" name="__codelineno-43-6"></a>&gt;<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>!requireNamespace<span class="o">(</span><span class="s1">&#39;BiocManager&#39;</span>,<span class="w"> </span><span class="nv">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>TRUE<span class="o">))</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7"></a>&gt;<span class="w"> </span>install.packages<span class="o">(</span><span class="s1">&#39;BiocManager&#39;</span><span class="o">)</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8"></a>&gt;<span class="w"> </span>BiocManager::install<span class="o">(</span><span class="s1">&#39;DESeq2&#39;</span><span class="o">)</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9"></a>&gt;<span class="w"> </span>installed.packages<span class="o">()</span>
+<a id="__codelineno-43-10" name="__codelineno-43-10"></a>&gt;<span class="w"> </span>quit<span class="o">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Here, some issues may arise, such as that packages will not be installed correctly if some dependencies, libraries, or settings are not guaranteed. Therefore, the commands in lines 2, 4 are necessary in the present example. After that, the installation of the packages "BiocManager" and "DESeq2" is most straightforwardly done as shown in lines 7-8. Finally, the call to <code>installed.packages()</code> in line 9 will show all the installed R's packages.</p>
+<p>When required libraries are not available in Kelvin2 module system, the users must contact the RSE Kelvin2 team. Otherwise, they can proceed to create an Anaconda environment, where installation of the R's preferred version, libraries and packages can be performed.</p>
+</details>
+<h2 id="singularity"><strong>Singularity</strong></h2>
+<p>In Kelvin-2, we use Singularity to run containers. The main advantage of Singularity is that it does not require root privileges to install the containers. Because of that, it is the most commonly used container in HPC systems.</p>
+<h3 id="installed-versions_6">Installed versions</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="w">   </span>apps/singularity/3.10.0
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">   </span>apps/singularity/3.4.2
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w">   </span>apps/apptainer/1.1.2
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">   </span>apps/apptainer/1.3.4
+</code></pre></div>
+<h3 id="usage-examples_6">Usage examples</h3>
+<p>More detail about using singularity and containers on Kelvin-2 can be found in the <a href="https://gitlab.qub.ac.uk/qub_hpc/applications/-/tree/master/Singularity%20Seminar">online seminar</a></p>
+<details class="example">
+<summary>Running a Docker image on Singularity</summary>
+<p>You need the docker image file <code>mydockerimage.img</code> as a tarball <code>mytarball.tar</code></p>
+<p>Go to a compute node
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>srun<span class="w"> </span>--pty<span class="w"> </span>--partition<span class="o">=</span>k2-hipri<span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem-per-cpu<span class="o">=</span>2G<span class="w"> </span>bash
+</code></pre></div></p>
+<p>Load the module
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>module<span class="w"> </span>load<span class="w"> </span>apps/singularity/3.4.2
+</code></pre></div></p>
+<p>To convert the tarball to singularity, first go to the directory where to tarball is located</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nb">cd</span><span class="w"> </span>/path/to/tarball
+</code></pre></div>
+<p>Convert the tarball:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>singularity<span class="w"> </span>build<span class="w"> </span>--sandbox<span class="w"> </span>mytarball<span class="w"> </span>docker-archive://mytarball.tar
+</code></pre></div>
+<p>Execute the image</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>singularity<span class="w"> </span>shell<span class="w"> </span>myimage
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>myimage<span class="w"> </span>mycommand
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>singularity<span class="w"> </span>run<span class="w"> </span>myimage
+</code></pre></div>
+<p><em>Create the tarball from a Docker image</em></p>
+<p>These steps should be done in your local computer, where you have docker. Once you create the tarball, you have to copy it to Kelvin-2 and create the Singularity image in Kelvin-2.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>&lt;my_local_machine&gt;$<span class="w"> </span>docker<span class="w"> </span>save<span class="w"> </span>mydockerimage<span class="w"> </span>-o<span class="w"> </span>mytarball.tar
+</code></pre></div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

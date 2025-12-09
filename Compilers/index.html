@@ -1,0 +1,1214 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Application%20Guides/">
+      
+      
+        <link rel="next" href="../Kelvin2%20Hardware/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Compilers - NIHPC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slates" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#compilers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="NIHPC Documentation" class="md-header__button md-logo" aria-label="NIHPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NIHPC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Compilers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slates" data-md-color-primary="red" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Kelvin2%20Overview/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kelvin2 Overview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Connecting%20to%20Kelvin2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Connecting to Kelvin2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Quickstart%20Guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick-Start Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Running%20Jobs/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Running Jobs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Application%20Guides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Application Guides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Compilers
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Kelvin2%20Hardware/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kelvin2 Hardware
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../McClayRDS/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  McClayRDS
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Green%20HPC/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Green HPC: Sustainable Use of High Performance Computing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="NIHPC Documentation" class="md-nav__button md-logo" aria-label="NIHPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NIHPC Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kelvin2%20Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kelvin2 Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connecting%20to%20Kelvin2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting to Kelvin2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Quickstart%20Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick-Start Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running%20Jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application%20Guides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Guides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#compilers-available-on-kelvin-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compilers available on Kelvin-2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compilers available on Kelvin-2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-of-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example of compilation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiling-parallel-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compiling parallel applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiling-applications-that-use-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compiling applications that use GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kelvin2%20Hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kelvin2 Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../McClayRDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    McClayRDS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Green%20HPC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Green HPC: Sustainable Use of High Performance Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="compilers">Compilers</h1>
+<p>Kelvin-2 has a large set of compilers and libraries for those users who compile their own self-programmed applications.
+We hardly recommend avoiding the system compilers, and to use those ones which are installed as modules. Modules for compilers as flagged in general as</p>
+<div class="highlight"><pre><span></span><code>compilers/&lt;name&gt;/&lt;version&gt;
+</code></pre></div>
+<p>And libraries</p>
+<div class="highlight"><pre><span></span><code>libs/&lt;name&gt;/&lt;version&gt;/&lt;compiler&gt;
+</code></pre></div>
+<p>where <compiler> states the compiler and version that it was compiled with, and in some cases, other libraries as dependencies.
+If you are going to use a precompiled library, be sure to use for your application the same compiler and version that the particular library was compiled with.</p>
+<h2 id="compilers-available-on-kelvin-2"><strong><em>Compilers available on Kelvin-2</em></strong></h2>
+<p>On Kelvin-2, for usual programming languages as C, C++, or Fortran, we recommend using the GNU compiling suite. It is well tested, and it is currently the fastest for AMD systems. 
+It is also a universal compiling suite, so any code will compile with it.</p>
+<div class="highlight"><pre><span></span><code>compilers/gcc/10.3.0
+compilers/gcc/11.2.0
+compilers/gcc/13.2.0
+compilers/gcc/14.1.0
+compilers/gcc/system *default*
+</code></pre></div>
+<p>Other compilers installed in Kelvin-2 are Clang (as part of library llvm), Nvidia nvhpc (only in Nvidia GPU nodes), AMD-Rocm (Only AMD GPU nodes).</p>
+<div class="highlight"><pre><span></span><code>libs/llvm/15.0.3
+libs/llvm/17.0.1
+nvhpc/22.7
+nvhpc/22.7-byo
+nvhpc/22.7-nompi
+nvhpc/23.11
+nvhpc/24.5
+nvhpc-hpcx/23.11-cuda11
+nvhpc-hpcx/23.11-cuda12
+nvhpc-hpcx/24.5
+amd-rocm/rocm-6.2.0
+amd-rocm/rocm-6.3.3
+</code></pre></div>
+<p>In consistence with the general practice, jobs must not be run into the login nodes, and that includes compilation. 
+The compilers check the hardware of the node where they are working, and they produce an executable adapted to the architecture of the node. 
+Login nodes have different architecture than compute nodes, so an application compiled in the login nodes will likely not work in the compute nodes.</p>
+<p>To compile, an interactive session should be opened in a compute node. 
+All the compute nodes in Kelvin-2 have the same architecture, so in general it does not matter in which one of them the compilation is performed. 
+High-memory nodes have more RAM memory, but the model of the RAM and the processors are the same as the standard nodes, 
+so a program compiled in the standard nodes will work in the high-memory nodes.</p>
+<p>One exception is to compile a program designed to work on the GPUs. 
+In this case, the session must be allocated in the k2-gpu partition, and it must be allocated a GPU resource where the application will be executed. 
+For compatibility, we recommend using the H100 GPUs to compile Nvidia CUDA codes. Further details about how to compile for GPUs will be stated in the specific section.</p>
+<div class="highlight"><pre><span></span><code>srun --pty --partition=k2-gpu-interactive --time=3:00:00 --ntasks=1 --mem-per-cpu=4G --gres gpu:h100:1 bash
+</code></pre></div>
+<h3 id="example-of-compilation"><strong><em>Example of compilation</em></strong></h3>
+<p>hello_world.c</p>
+<div class="highlight"><pre><span></span><code>// Program to print Hello World using C language
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void main(void)
+{
+    printf(&quot;Hello World... \n&quot;);
+}
+</code></pre></div>
+<p>Compile and execute</p>
+<div class="highlight"><pre><span></span><code>[&lt;user&gt;@login1 [kelvin2] ~]$ srun --pty --partition=k2-hipri --ntasks=1 --mem-per-cpu=100M bash
+[&lt;user&gt;@node162 [kelvin2] ~]$ module load compilers/gcc/14.1.0
+[&lt;user&gt;@node162 [kelvin2] ~]$ gcc -O2 -o hello_world.x hello_world.c
+[&lt;user&gt;@node162 [kelvin2] ~]$ ./hello_world.x
+Hello World...
+</code></pre></div>
+<h2 id="compiling-parallel-applications"><strong><em>Compiling parallel applications</em></strong></h2>
+<ul>
+<li>OpenMP</li>
+</ul>
+<p>All the compilers have integrated the libraries to execute in parallel using the Open Multi Processor protocol.
+ In the case of the GNU compiler, the OpenMP protocol is activated just adding the flag</p>
+<div class="highlight"><pre><span></span><code> -fopenmp
+</code></pre></div>
+<p>to the compilation command.</p>
+<p>hello_world_omp.c</p>
+<div class="highlight"><pre><span></span><code>// OpenMP program to print Hello World
+// using C language
+
+// OpenMP header
+#include &lt;omp.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char* argv[])
+{
+
+    // Beginning of parallel region
+    #pragma omp parallel
+    {
+
+        printf(&quot;Hello World... from thread = %d\n&quot;,
+               omp_get_thread_num());
+    }
+    // Ending of parallel region
+}
+</code></pre></div>
+<p>Compile and execute</p>
+<div class="highlight"><pre><span></span><code>[&lt;user&gt;@login1 [kelvin2] ~]$ srun --pty --partition=k2-hipri --ntasks=8 --mem-per-cpu=100M bash
+[&lt;user&gt;@node162 [kelvin2] ~]$ module load compilers/gcc/14.1.0
+[&lt;user&gt;@node162 [kelvin2] ~]$ gcc -O2 -fopenmp -o hello_world_omp.x hello_world_omp.c
+[&lt;user&gt;@node162 [kelvin2] ~]$ ./hello_world_omp.x
+Hello World... from thread = 3
+Hello World... from thread = 2
+Hello World... from thread = 6
+Hello World... from thread = 7
+Hello World... from thread = 4
+Hello World... from thread = 5
+Hello World... from thread = 0
+Hello World... from thread = 1
+</code></pre></div>
+<ul>
+<li>MPI</li>
+</ul>
+<p>To compile using the Message Passing Interface protocol, in Kelvin-2 it is necessary to load the modules for those libraries and change the compiling commands.
+ The modules that activate the MPI libraries are flagged in Kelvin-2 as</p>
+<div class="highlight"><pre><span></span><code> mpi/&lt;name&gt;/&lt;version&gt;/&lt;compiler&gt;
+</code></pre></div>
+<p>where <compiler> points the compiler and version that the MPI libraries were compiled with.
+ This is important for compatibility of the compilations, it should be used the same compiler for the application than the one that was used to compile the MPI libraries.</p>
+<p>The available MPI implementations on Kelvin-2 are</p>
+<div class="highlight"><pre><span></span><code>mpi/openmpi/4.1.6/gcc-8.5.0
+mpi/openmpi/5.0.3/gcc-13.2.0+nvidia-cuda-12.8.0
+mpi/openmpi/5.0.3/gcc-14.1.0 *default*
+mpi/openmpi/5.0.3/gcc-8.5.0
+mpi/openmpi/5.0.7/gcc-14.1.0+rocm
+mpi/intel-mpi/2016u1/bin
+mpi/intel-mpi/2020u4/bin
+mpi/mvapich2/2.3.4/gdr
+mpi/mvapich2/2.3.5/gdr
+mpi/mvapich2/2.3.5/gdr+slurm
+</code></pre></div>
+<p>We hardly recommend using the OpenMPI compiling suite, it has been widely tested, and it works stable on Kelvin-2.
+ The MPICh suite has not been so deeply tested, and it is not guaranteed that applications compiled with it will work on Kelvin-2.
+ If you decide to use the MPICh suite, be sure to test your application before using it for production.</p>
+<p>To compile using MPI, the compiling commands should be changed.
+ For example, to compile a C program with the compiler GNU 9.3.0, the command to be used is</p>
+<div class="highlight"><pre><span></span><code> gcc &lt;flags&gt; -o my_executable.x my_C_program.c
+</code></pre></div>
+<p>And if we want to compile it in parallel using the MPI version 4.1.1, the compiling command should be changed to</p>
+<div class="highlight"><pre><span></span><code> mpicc &lt;flags&gt; -o my_executable.x my_MPI-C_program.c
+</code></pre></div>
+<p>In general, the compiling commands should be changed</p>
+<div class="highlight"><pre><span></span><code> gcc -&gt; mpicc
+ g++ -&gt; mpicxx
+ gfortran -&gt; mpifortran
+</code></pre></div>
+<p>These values are taken by default, and the command "mpicc" will use the GNU compiler and the MPI libraries.
+ If you want to use a different compiler, you have to specify it in the environment variables</p>
+<div class="highlight"><pre><span></span><code>OMPI_MPICC
+OMPI_MPICXX
+OMPI_FC
+</code></pre></div>
+<p>For example, to compile using the MPI library v5.0.3 with the clang compiler included in the module llvm v17.0.1, the environment variables should be defined as</p>
+<div class="highlight"><pre><span></span><code>export OMPI_MPICC=clang
+export OMPI_MPICXX=clang++
+export OMPI_FC=flang
+</code></pre></div>
+<p>and compile using the commands "mpicc", "mpicxx", "mpifortran".</p>
+<p>hello_world_mpi.c</p>
+<div class="highlight"><pre><span></span><code>#include &lt;mpi.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(int argc, char** argv) {
+    // Initialize the MPI environment
+    MPI_Init(NULL, NULL);
+
+    // Get the number of processes
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &amp;world_size);
+
+    // Get the rank of the process
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &amp;world_rank);
+
+    // Get the name of the processor
+    char processor_name[MPI_MAX_PROCESSOR_NAME];
+    int name_len;
+    MPI_Get_processor_name(processor_name, &amp;name_len);
+
+    // Print off a hello world message
+    printf(&quot;Hello world from processor %s, rank %d out of %d processors\n&quot;,
+           processor_name, world_rank, world_size);
+
+    // Finalize the MPI environment.
+    MPI_Finalize();
+}
+</code></pre></div>
+<p>Compile and execute</p>
+<div class="highlight"><pre><span></span><code>[&lt;user&gt;@login1 [kelvin2] ~]$ srun --pty --partition=k2-hipri --ntasks=8 --mem-per-cpu=100M bash
+[&lt;user&gt;@node162 [kelvin2] ~]$ module load compilers/gcc/14.1.0
+[&lt;user&gt;@node162 [kelvin2] ~]$ module load mpi/openmpi/5.0.3/gcc-14.1.0
+[&lt;user&gt;@node162 [kelvin2] ~]$ mpicc -O2 -o hello_world_mpi.x hello_world_mpi.c
+[&lt;user&gt;@node162 [kelvin2] ~]$ mpirun -np 8 ./hello_world_mpi.x
+Hello world from processor node162.pri.kelvin2.alces.network, rank 0 out of 8 processors
+Hello world from processor node162.pri.kelvin2.alces.network, rank 4 out of 8 processors
+Hello world from processor node162.pri.kelvin2.alces.network, rank 5 out of 8 processors
+Hello world from processor node162.pri.kelvin2.alces.network, rank 1 out of 8 processors
+Hello world from processor node162.pri.kelvin2.alces.network, rank 3 out of 8 processors
+Hello world from processor node162.pri.kelvin2.alces.network, rank 6 out of 8 processors
+Hello world from processor node162.pri.kelvin2.alces.network, rank 7 out of 8 processors
+Hello world from processor node162.pri.kelvin2.alces.network, rank 2 out of 8 processors
+</code></pre></div>
+<ul>
+<li>OpenACC</li>
+</ul>
+<p>Open accelerator is a feature included in the Nvidia compiler.
+ It can be activated adding to the compilation sequence the flag</p>
+<div class="highlight"><pre><span></span><code> -acc
+</code></pre></div>
+<p>This option implies an intelligent check-up of the hardware at the time of the execution.
+ The compiler will use the available hardware resources at that time to optimize the acceleration of the marked regions of the code as "OpenACC",
+ multiple-CPUs or GPUs will be allocated by the compiler for the execution, the user does not need to specify the resources at the time of the execution.</p>
+<p>OpenACC is a feature of the Nvidia compiler. On Kelvin-2, it will work only on the GPU nodes.
+ If you want the compiler to take advantage of the GPU accelerators, you must allocate a GPU resource when you compile the code, preferably an A100 GPU.</p>
+<p>More information about OpenACC, including pdf user guides can be found in the web site </br>
+ <a href="https://www.openacc.org" target="_blank">https://www.openacc.org</a></p>
+<p>hello_world_openacc.c</p>
+<div class="highlight"><pre><span></span><code>#include &lt;stdio.h&gt;
+#ifdef _OPENACC
+#include &lt;openacc.h&gt;
+#endif
+
+int main(void) {
+#ifdef _OPENACC
+    acc_device_t devtype;
+#endif
+
+    printf(&quot;Hello world from OpenACC\n&quot;);
+#ifdef _OPENACC
+    devtype = acc_get_device_type();
+    printf(&quot;Number of available OpenACC devices: %d\n&quot;, acc_get_num_devices(devtype));
+    printf(&quot;Type of available OpenACC devices: %d\n&quot;, devtype);
+#else
+    printf(&quot;Code compiled without OpenACC\n&quot;);
+#endif
+
+    return 0;
+}
+</code></pre></div>
+<p>Compile and execute</p>
+<div class="highlight"><pre><span></span><code>[&lt;user&gt;@login1 [kelvin2] ~]$ srun --pty --partition=k2-gpu-interactive --time=3:00:00 --ntasks=1 --mem-per-cpu=1G --gres gpu:h100:1 bash
+[&lt;user&gt;@gpu121 [kelvin2] ~]$ module load nvhpc/24.5
+[&lt;user&gt;@gpu121 [kelvin2] ~]$ nvc -O2 -acc -o hello_world_openacc.x hello_world_openacc.c
+[&lt;user&gt;@gpu121 [kelvin2] ~]$ ./hello_world_openacc.x
+Hello world from OpenACC
+Number of available OpenACC devices: 1
+Type of available OpenACC devices: 4
+</code></pre></div>
+<h2 id="compiling-applications-that-use-gpus"><strong><em>Compiling applications that use GPUs</em></strong></h2>
+<p>To compile a program designed to work on the Graphical Processing Units of Kelvin-2, it is essential that it is compiled in a GPU node, so the queue "k2-gpu-interactive" must be allocated.
+For backwards compatibility, the program must be compiled in the latest model of GPU present in the machine, in the example case, the Nvidia H100 GPUs.
+So, when allocating the interactive session to carry out the compilation, the resource H100 should be allocated with the flag</p>
+<div class="highlight"><pre><span></span><code>--gres gpu:h100:1
+</code></pre></div>
+<p>During the last years, the popularity of the specific GPU-focused programming languages, such as CUDA, has decreased.
+This is due to the publicly-available libraries have become more and more complete, and practically any mathematical operation that can benefit of the acceleration advantages of a GPU is present on those libraries.
+Some examples are "cublas" for linear-algebra operations, and "cufft" for Fourier transforms.
+Most of the libraries designed to work in the GPUs of Kelvin-2 can be found in the module for the Nvidia CUDA drivers:</p>
+<div class="highlight"><pre><span></span><code>libs/nvidia-cuda/11.0.3/bin
+libs/nvidia-cuda/11.1.1/bin
+libs/nvidia-cuda/11.6.2/bin
+libs/nvidia-cuda/11.8.0/bin
+libs/nvidia-cuda/12.4.0/bin
+libs/nvidia-cuda/12.8.0/bin
+libs/nvidia-cuda/9.0.176.4/bin
+</code></pre></div>
+<p>Or for AMD ROCM codes</p>
+<div class="highlight"><pre><span></span><code>amd-rocm/rocm-6.2.0
+amd-rocm/rocm-6.3.3
+</code></pre></div>
+<p>These libraries can be including in the executables, as usual adding the flag "-l" to the compilation command, for example</p>
+<div class="highlight"><pre><span></span><code>gcc &lt;flags&gt; -lcublas -lcufft -o my_executable.x my_GPU_program.c
+</code></pre></div>
+<p>Nevertheless, if you require a very specific operation, that is not present in the available libraries, and it is necessary to use CUDA, the device-specific GPU compilers can be used.</p>
+<p>For Nvidia-CUDA</p>
+<div class="highlight"><pre><span></span><code>nvhpc/22.7
+nvhpc/22.7-byo
+nvhpc/22.7-nompi
+nvhpc/23.11
+nvhpc/24.5
+nvhpc-hpcx/23.11-cuda11
+nvhpc-hpcx/23.11-cuda12
+nvhpc-hpcx/24.5
+</code></pre></div>
+<p>And for AMD-ROCM</p>
+<div class="highlight"><pre><span></span><code>amd-rocm/rocm-6.2.0
+amd-rocm/rocm-6.3.3
+</code></pre></div>
+<p>This compilers can recognise the sections of the code in an intelligent way, so there is no need of more flags to point that it includes CUDA or HIP routines.
+To compile with Nvidia or ROCM compiler, just use its usual commands</p>
+<div class="highlight"><pre><span></span><code>nvc &lt;flags&gt; -o my_executable.x my_CUDA_C_program.cu
+nvc++ &lt;flags&gt; -o my_executable.x my_CUDA_C++_program.cu
+nvfortran &lt;flags&gt; -o my_executable.x my_CUDA_Fortran_program.cuf
+hipcc &lt;flags&gt; -o my_executable.x my_HIP_C++_program.hip
+hipfc &lt;flags&gt; -o my_executable.x my_HIP_Fortran_program.f90
+</code></pre></div>
+<p>hello_world_cuda.cu</p>
+<div class="highlight"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;cuda.h&gt;
+
+__global__ void cuda_hello(){
+    printf(&quot;Hello World from GPU!\n&quot;);
+}
+
+int main() {
+    cuda_hello&lt;&lt;&lt;1,1&gt;&gt;&gt;();
+    cudaDeviceSynchronize();
+    return 0;
+}
+</code></pre></div>
+<p>Compile and execute, CUDA.</p>
+<div class="highlight"><pre><span></span><code>[&lt;user&gt;@login2 [kelvin2] ~]$ srun --pty --partition=k2-gpu-interactive --ntasks=1 --mem-per-cpu=2G --time=03:00:00 --gres gpu:h100:1 bash
+[&lt;user&gt;@gpu121 [kelvin2] ~]$ module load nvhpc/24.5
+[&lt;user&gt;@gpu121 [kelvin2] ~]$ nvcc -O2 -o hello_world_cuda.x hello_world_cuda.cu
+[&lt;user&gt;@gpu121 [kelvin2] ~]$ ./hello_world_cuda.x
+Hello World from GPU!
+</code></pre></div>
+<p>hello_world_hip.hip</p>
+<div class="highlight"><pre><span></span><code>#include &lt;iostream&gt;
+#include &lt;hip/hip_runtime.h&gt;
+
+__global__ void hello_world_kernel()
+{
+    printf(&quot;Hello World from GPU!\n&quot;);
+}
+
+int main()
+{
+    int error;
+    hello_world_kernel&lt;&lt;&lt;1, 1&gt;&gt;&gt;();
+    error=hipGetLastError();
+    error=hipDeviceSynchronize();
+    return 0;
+}
+</code></pre></div>
+<p>Compile and execute, AMD-ROCM.</p>
+<div class="highlight"><pre><span></span><code>[&lt;user&gt;@login2 [kelvin2] ~]$ srun --pty --partition=k2-gpu-interactive --ntasks=1 --mem-per-cpu=2G --time=03:00:00 --gres gpu:mi300x:1 bash
+[&lt;user&gt;@gpu123 [kelvin2] ~]$ module load amd-rocm/rocm-6.3.3
+[&lt;user&gt;@gpu123 [kelvin2] ~]$ hipcc -O2 -o hello_world_hip.x hello_world_hip.hip
+[&lt;user&gt;@gpu123 [kelvin2] ~]$ ./hello_world_hip.x
+Hello World from GPU!
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
