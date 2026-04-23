@@ -669,7 +669,7 @@ apps/python3/3.12.4/gcc-14.1.0
 
     We recommend that users create Python virtual environments when installing Python packages. This keeps environments for different applications isolated from one another, improving reproducibility and avoiding conflicts.
 
-    **Create your environment**
+   **Create your environment**
 
    ``` bash
    # Request an interactive session - installations should be performed on a compute node
@@ -684,7 +684,7 @@ apps/python3/3.12.4/gcc-14.1.0
    
    # Create the new virtual environment (in this example, called my_env)
    python3 -m venv my_env
-    ```
+   ```
 
    **Activate your environment**
    
