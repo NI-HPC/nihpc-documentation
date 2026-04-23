@@ -280,6 +280,8 @@ Compile and execute
 
 ## ***Compiling applications that use GPUs***
 
+### Nvidia and AMD GPUs
+
 To compile a program designed to work on the Graphical Processing Units of Kelvin-2, it is essential that it is compiled in a GPU node, so the queue "k2-gpu-interactive" must be allocated.
 For backwards compatibility, the program must be compiled in the latest model of GPU present in the machine, in the example case, the Nvidia H100 GPUs.
 So, when allocating the interactive session to carry out the compilation, the resource H100 should be allocated with the flag
@@ -384,3 +386,38 @@ Compile and execute, AMD-ROCM.
     [<user>@gpu123 [kelvin2] ~]$ hipcc -O2 -o hello_world_hip.x hello_world_hip.hip
     [<user>@gpu123 [kelvin2] ~]$ ./hello_world_hip.x
     Hello World from GPU!
+
+### Intel GPUs
+
+For Intel GPUs, the compilers, MPI implementations math libraries are provided by the Intel OneAPI HPC Toolkit module:
+
+    intel/oneapi/hpc-toolkit/2025.2.1/gcc-14.1.0
+
+Below is a hello world example for the Intel GPUs. A recommended resource for programming for Intel GPUs is the book [Data Parallel C++](https://link.springer.com/book/10.1007/978-1-4842-9691-2){target=_blank}
+
+ hello_world_intel.cpp
+
+    #include <iostream>
+    #include <sycl/sycl.hpp>
+    
+    int main() {
+        sycl::queue cpu_q{ sycl::cpu_selector_v };
+        sycl::queue gpu_q{ sycl::gpu_selector_v };
+    
+        std::cout << "CPU queue running on: "
+                  << cpu_q.get_device().get_info<sycl::info::device::name>() << "\n";
+    
+        std::cout << "GPU queue running on: "
+                  << gpu_q.get_device().get_info<sycl::info::device::name>() << "\n";
+    
+        return 0;
+    }
+
+To compile and run for the Intel GPU:
+
+    [<user>@login2 [kelvin2] ~]$ srun --pty --partition=k2-gpu-interactive --ntasks=1 --mem-per-cpu=2G --time=00:05:00 --gres gpu:i1100:1 bash
+    [<user>@gpu122 [kelvin2] ~]$ module load intel/oneapi/hpc-toolkit/2025.2.1/gcc-14.1.0
+    [<user>@gpu122 [kelvin2] ~]$ icpx -fsycl hello_world_intel.cpp -o hello_world_intel
+    [<user>@gpu122 [kelvin2] ~]$ ./hello_world_intel
+    CPU queue running on: Intel(R) Xeon(R) Gold 6438Y+
+    GPU queue running on: Intel(R) Data Center GPU Max 1100
