@@ -669,52 +669,52 @@ apps/python3/3.12.4/gcc-14.1.0
 
     We recommend that users create Python virtual environments when installing Python packages. This keeps environments for different applications isolated from one another, improving reproducibility and avoiding conflicts.
 
-   **Create your environment**
+    **Create your environment**
 
-   ``` bash
-   # Request an interactive session - installations should be performed on a compute node
-   srun --partition=k2-sandbox --time=00:30:00 --ntasks=1 --mem=10GB --pty bash
+    ``` bash
+    # Request an interactive session - installations should be performed on a compute node
+    srun --partition=k2-sandbox --time=00:30:00 --ntasks=1 --mem=10GB --pty bash
    
-   # Load the Python module
-   module load apps/python3/3.12.4/gcc-14.1.0
+    # Load the Python module
+    module load apps/python3/3.12.4/gcc-14.1.0
    
-   # Move to your scratch directory. Python packages often contain thousands of files,
-   # which can quickly use up your home directory quota.
-   cd /mnt/scratch2/users/$USER
+    # Move to your scratch directory. Python packages often contain thousands of files,
+    # which can quickly use up your home directory quota.
+    cd /mnt/scratch2/users/$USER
    
-   # Create the new virtual environment (in this example, called my_env)
-   python3 -m venv my_env
-   ```
+    # Create the new virtual environment (in this example, called my_env)
+    python3 -m venv my_env
+    ```
 
-   **Activate your environment**
+    **Activate your environment**
    
-   A new directory called `my_env` has been created. Activate it by sourcing the `activate` script
+    A new directory called `my_env` has been created. Activate it by sourcing the `activate` script
 
-   ``` bash
-   source my_env/bin/activate
-   ```
+    ``` bash
+    source my_env/bin/activate
+    ```
 
-   Once activated, your prompt will show the environment name, for example:
+    Once activated, your prompt will show the environment name, for example:
 
-   ``` bash
-   (my_env) user@node160
-   ```
+    ``` bash
+    (my_env) user@node160
+    ```
 
-   You can now install Python packages inside your environment:
+    You can now install Python packages inside your environment:
 
-   ``` bash
-   pip3 install numpy
-   ```
+    ``` bash
+    pip3 install numpy
+    ```
 
-   **Reactivating the environment**
+    **Reactivating the environment**
 
-   In future Kelvin2 sessions, simply load the Python module and activate the environment again
+    In future Kelvin2 sessions, simply load the Python module and activate the environment again
    
-   ``` bash
-   module load apps/python3/3.12.4/gcc-14.1.0
-   source /mnt/scratch2/users/$USER/my_env/bin/activate
-   ```
-    
+    ``` bash
+    module load apps/python3/3.12.4/gcc-14.1.0
+    source /mnt/scratch2/users/$USER/my_env/bin/activate
+    ```
+
 ### Usage examples
 
 ??? example "Installing reportseff in Home directory"
