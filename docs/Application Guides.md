@@ -665,24 +665,55 @@ apps/python3/3.12.4/gcc-14.1.0
 
 ### Usage notes
 
-??? note "Anaconda environments"
+??? note "Virtual Environments"
 
-    It is often recommended to use [Anaconda environments](#anaconda) to install Python packages rather than pip. This is to reduce the risk of installation problems like package incompatibilities and the user not having write permissions to Kelvin2 system paths.
+    We recommend that users create Python virtual environments when installing Python packages. This keeps environments for different applications isolated from one another, improving reproducibility and avoiding conflicts.
 
-??? note "Installing pip packages in Scratch Directory"
+    **Create your environment**
 
-    It is recommended that users declare/modify the environment variables "PATH" and "PYTHONPATH towards locations in the Shared Scratch directory in order to preserve space/quota in the Home directory.
-
-    ``` bash
-    mkdir /mnt/scratch2/users/$USER/gridware
-    export PATH=/mnt/scratch2/users/$USER/gridware/bin/:$PATH
-    export PYTHONPATH=/mnt/scratch2/users/$USER/gridware/site-packages/:$PYTHONPATH
+   ``` bash
+   # Request an interactive session - installations should be performed on a compute node
+   srun --partition=k2-sandbox --time=00:30:00 --ntasks=1 --mem=10GB --pty bash
+   
+   # Load the Python module
+   module load apps/python3/3.12.4/gcc-14.1.0
+   
+   # Move to your scratch directory. Python packages often contain thousands of files,
+   # which can quickly use up your home directory quota.
+   cd /mnt/scratch2/users/$USER
+   
+   # Create the new virtual environment (in this example, called my_env)
+   python3 -m venv my_env
     ```
-    This creates and uses the folder "gridware" in users' Scratch directory, so the pip install will be redirected to the Scratch directory instead of the Home directory.
 
-??? note "Default Python version on Kelvin2"
+   **Activate your environment**
+   
+   A new directory called `my_env` has been created. Activate it by sourcing the `activate` script
 
-    On internet blogs/forums, users will often find the recommendation `pip install <package name>` to install a particular tool. In this case, for the same install in Kelvin2, it is recommended to precede the command with "python3 -m" because by default pip will refer to the Python 2.7 version, which is always available from command line in Kelvin2. That is, always use `python3 -m pip install <package name>` to install the package.
+   ``` bash
+   source my_env/bin/activate
+   ```
+
+   Once activated, your prompt will show the environment name, for example:
+
+   ``` bash
+   (my_env) user@node160
+   ```
+
+   You can now install Python packages inside your environment:
+
+   ``` bash
+   pip3 install numpy
+   ```
+
+   **Reactivating the environment**
+
+   In future Kelvin2 sessions, simply load the Python module and activate the environment again
+   
+   ``` bash
+   module load apps/python3/3.12.4/gcc-14.1.0
+   source /mnt/scratch2/users/$USER/my_env/bin/activate
+   ```
     
 ### Usage examples
 
