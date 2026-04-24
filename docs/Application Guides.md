@@ -717,6 +717,33 @@ apps/python3/3.12.4/gcc-14.1.0
 
 ### Usage examples
 
+??? example "PyTorch on Intel GPU Node"
+
+    PyTorch for use on the Intel GPU node can be installed as follows:
+
+    ``` bash
+    # Request an interactive session on the Intel GPU node
+    srun --partition=k2-gpu-interactive --gres=gpu:i1100:1 --time=00:30:00 --nodes=1 --ntasks=1 --mem=10GB --pty bash
+   
+    # Load the Python module
+    module load apps/python3/3.12.4/gcc-14.1.0
+   
+    # Move to your scratch directory. Python packages often contain thousands of files,
+    # which can quickly use up your home directory quota.
+    cd /mnt/scratch2/users/$USER
+   
+    # Create the new virtual environment (in this example, called pytorch_env)
+    python3 -m venv pytorch_env
+   
+    # Activate the virtual environment
+    source pytorch_env/bin/activate
+   
+    # Install the PyTorch packages
+    pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/xpu
+    ```
+
+    Example PyTorch scripts for Intel GPUs are given [here](https://docs.pytorch.org/docs/stable/notes/get_start_xpu.html){target=_blank}.
+
 ??? example "Installing reportseff in Home directory"
 
     The next code snippet illustrates simply how to load a module and install a package in the default location (gridware folder located in the users' home folder). This approach is only recommended for small installs.
