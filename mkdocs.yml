@@ -10,6 +10,7 @@ nav:
     - 'Kelvin2 Hardware.md'
     - 'McClayRDS.md'
     - 'Green HPC.md'
+    - 'Benchmarks.md'
 theme:
   name: material
   features:
