@@ -1,4 +1,4 @@
-# Benchmarking
+# Benchmarks
 
 This page contains benchmarking results for the Kelvin2 system.
 
@@ -16,7 +16,7 @@ This section shows results of a performance comparison between Intel and NVidia 
 #### Results
 
 <p align="center">
-<img src="assets/benchmarking/matmul-results-1.png" alt="Matrix Multiply Results" height="600">
+<img src="/nihpc-documentation/assets/benchmarking/matmul-results-1.png" alt="Matrix Multiply Results" height="600">
 </p>
 
 ### Benchmark 2: Convolutional Neural Network (PyTorch)
@@ -30,7 +30,7 @@ This section shows results of a performance comparison between Intel and NVidia 
 
 #### Results
 <p align="center">
-  <img src="assets/benchmarking/cnn-results-1.png" alt="CNN Results" height="300">
+  <img src="/nihpc-documentation/assets/benchmarking/cnn-results-1.png" alt="CNN Results" height="300">
 </p>
 
 ### Benchmark 3: Molecular Dynamics Simulation (GROMACS)
@@ -43,5 +43,5 @@ This section shows results of a performance comparison between Intel and NVidia 
 #### Results
 
 <p align="center">
-  <img src="assets/benchmarking/gromacs-results-1.png" alt="GROMACS BenchPEP-h results" height="300">
+  <img src="/nihpc-documentation/assets/benchmarking/gromacs-results-1.png" alt="GROMACS BenchPEP-h results" height="300">
 </p>
