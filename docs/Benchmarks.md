@@ -4,7 +4,7 @@ This page contains benchmarking results for the Kelvin2 system.
 
 ## Intel Data Center GPU Max 1100
 
-This section shows results of a performance comparison between Intel and NVidia GPUs on the Kelvin2 HPC system. The training scripts may be found [here](https://github.com/stevencousens/kelvin2-gpu-performance-tests){target=_blank}
+This section shows the results of a performance comparison between Intel and NVidia GPUs on the Kelvin2 HPC system. The training scripts may be found [here](https://github.com/stevencousens/kelvin2-gpu-performance-tests){target=_blank}
 
 ### Benchmark 1: Matrix Multiply (PyTorch)
 
@@ -46,3 +46,6 @@ This section shows results of a performance comparison between Intel and NVidia 
 <img src="/nihpc-documentation/assets/benchmarking/gromacs-results-1.png"
      alt="GROMACS BenchPEP-h results"
      style="height:300px;">
+
+## AMD Mi300x
+This section shows the results of a performance comparison between Intel and NVidia GPUs on the Kelvin2 HPC system.
