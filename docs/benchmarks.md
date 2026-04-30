@@ -15,9 +15,9 @@ This section shows results of a performance comparison between Intel and NVidia 
 
 #### Results
 
-<p align="center">
-<img src="/nihpc-documentation/assets/benchmarking/matmul-results-1.png" alt="Matrix Multiply Results" height="600">
-</p>
+<img src="/nihpc-documentation/assets/benchmarking/matmul-results-1.png"
+     alt="Matrix Multiply Results"
+     style="height:600px;">
 
 ### Benchmark 2: Convolutional Neural Network (PyTorch)
 
@@ -29,9 +29,10 @@ This section shows results of a performance comparison between Intel and NVidia 
 - Use automatic mixed precision (AMP)
 
 #### Results
-<p align="center">
-  <img src="/nihpc-documentation/assets/benchmarking/cnn-results-1.png" alt="CNN Results" height="300">
-</p>
+
+<img src="/nihpc-documentation/assets/benchmarking/cnn-results-1.png"
+     alt="CNN Results"
+     style="height:300px;">
 
 ### Benchmark 3: Molecular Dynamics Simulation (GROMACS)
 
@@ -42,6 +43,6 @@ This section shows results of a performance comparison between Intel and NVidia 
 
 #### Results
 
-<p align="center">
-  <img src="/nihpc-documentation/assets/benchmarking/gromacs-results-1.png" alt="GROMACS BenchPEP-h results" height="300">
-</p>
+<img src="/nihpc-documentation/assets/benchmarking/gromacs-results-1.png"
+     alt="GROMACS BenchPEP-h results"
+     style="height:300px;">
