@@ -38,7 +38,7 @@ This section shows results of a performance comparison between Intel and NVidia 
 
 #### Method
 
-- Use a standard benchmark from [https://www.mpinat.mpg.de/grubmueller/bench](https://www.mpinat.mpg.de/grubmueller/bench)
+- Use a standard benchmark from [https://www.mpinat.mpg.de/grubmueller/bench](https://www.mpinat.mpg.de/grubmueller/bench){target=_blank}
 - BenchPEP-h: 12M atoms, Peptides in water, 2 fs time step, h-bonds constrained
 
 #### Results
