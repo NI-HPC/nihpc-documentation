@@ -59,6 +59,19 @@ This section shows the results of a performance comparison between Intel and NVi
 
 #### Results
 
-<img src="/nihpc-documentation/assets/benchmarking/gromacs-results-1.png"
+<img src="/nihpc-documentation/assets/benchmarking/Screenshot 2026-05-05 at 12.23.39.png"
+     alt="GROMACS BenchPEP-h results"
+     style="height:300px;">
+
+### Benchmark 2: NAMD
+
+#### Method
+
+- Use a standard benchmark from [https://www.mpinat.mpg.de/grubmueller/bench](https://www.mpinat.mpg.de/grubmueller/bench){target=_blank}
+- BenchPEP-h: 12M atoms, Peptides in water, 2 fs time step, h-bonds constrained 
+
+#### Results
+
+<img src="/nihpc-documentation/assets/benchmarking/Screenshot 2026-05-05 at 12.24.11.png"
      alt="GROMACS BenchPEP-h results"
      style="height:300px;">
