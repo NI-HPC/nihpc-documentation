@@ -59,9 +59,11 @@ This section shows the results of a performance comparison between Intel and NVi
 
 #### Results
 
+- Notice the speedup from using Gromac's threaded MPI to the full MPI implementation
+  
 <img src="/nihpc-documentation/assets/benchmarking/Screenshot 2026-05-05 at 12.23.39.png"
      alt="GROMACS BenchPEP-h results"
-     style="height:300px;">
+     style="height:500px;">
 
 ### Benchmark 2: NAMD
 
