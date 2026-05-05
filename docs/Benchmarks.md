@@ -69,8 +69,8 @@ This section shows the results of a performance comparison between Intel and NVi
 
 #### Method
 
-- Use a standard benchmark from [https://www.mpinat.mpg.de/grubmueller/bench](https://www.mpinat.mpg.de/grubmueller/bench){target=_blank}
-- BenchPEP-h: 12M atoms, Peptides in water, 2 fs time step, h-bonds constrained 
+- Use a standard benchmark from [https://www.ks.uiuc.edu/Research/namd/benchmarks/previous_benchmarks.html](https://www.ks.uiuc.edu/Research/namd/benchmarks/previous_benchmarks.html){target=_blank}
+-  
 
 #### Results
 
