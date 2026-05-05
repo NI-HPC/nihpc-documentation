@@ -70,7 +70,7 @@ This section shows the results of a performance comparison between Intel and NVi
 #### Method
 
 - Use a standard benchmark from [https://www.ks.uiuc.edu/Research/namd/benchmarks/previous_benchmarks.html](https://www.ks.uiuc.edu/Research/namd/benchmarks/previous_benchmarks.html){target=_blank}
--  
+-  STMV 1.06M atom benchmark
 
 #### Results
 
