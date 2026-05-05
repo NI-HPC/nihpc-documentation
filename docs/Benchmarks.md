@@ -49,3 +49,16 @@ This section shows the results of a performance comparison between Intel and NVi
 
 ## AMD Mi300x
 This section shows the results of a performance comparison between Intel and NVidia GPUs on the Kelvin2 HPC system.
+
+### Benchmark 1: Molecular Dynamics Simulation (GROMACS)
+
+#### Method
+
+- Use a standard benchmark from [https://www.mpinat.mpg.de/grubmueller/bench](https://www.mpinat.mpg.de/grubmueller/bench){target=_blank}
+- BenchPEP-h: 12M atoms, Peptides in water, 2 fs time step, h-bonds constrained 
+
+#### Results
+
+<img src="/nihpc-documentation/assets/benchmarking/gromacs-results-1.png"
+     alt="GROMACS BenchPEP-h results"
+     style="height:300px;">
