@@ -5,7 +5,7 @@
 
 QUB Principal Investigators (PIs) may request access to the McClay Research Data Store (McClayRDS) for the duration of their research project.
 
-The storage space will be assigned to individual research projects and access is available to specified members of that research group. Access can be requested by filling in the application form [here](https://forms.office.com/e/yH7Gu0A93g). In using McClayRDS you agree to the [researcher responsibilities](#research-data-responsibilities) noted below.
+The storage space will be assigned to individual research projects and access is available to specified members of that research group. Access can be requested by filling in the application form [here](https://forms.office.com/Pages/ResponsePage.aspx?id=6ner6qW040mh6NbdI6Hyhts22yhFVwxHnahhyg9qs7FUNE1ZQVRLNFNJVDZKS0VOUUlQMjZHTEkxNC4u). In using McClayRDS you agree to the [researcher responsibilities](#research-data-responsibilities) noted below.
 
 Once assigned a project code, the directory is accessible at  `/mnt/autofs/mcclayrds-projects/<project-code>`.
 
