@@ -23,7 +23,7 @@ Please note that you will be unable to directly access your data while it is in 
 
 ## Requesting Changes
 
-To most effectively manage McClayRDS, we require accurate and up-to-date information on your storage requirements. Please [contact us](https://www.ni-hpc.ac.uk/contact/){target=_blank} if you would like to make any changes to your project including:
+To most effectively manage McClayRDS, we require accurate and up-to-date information on your storage requirements. Please [contact us](https://forms.cloud.microsoft/oidcLogin?IdentityProvider=aad&ru=https%3A%2F%2Fforms.cloud.microsoft%2FPages%2FResponsePage.aspx%3Fid%3D6ner6qW040mh6NbdI6Hyhts22yhFVwxHnahhyg9qs7FUNE1ZQVRLNFNJVDZKS0VOUUlQMjZHTEkxNC4u%26fsw%3D0%26sid%3Ddd47b5c2-e482-4315-8525-ccfc1cacc90d){target=_blank} if you would like to make any changes to your project including:
 
  * Quotas
  * User access list
